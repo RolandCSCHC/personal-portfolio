@@ -1,11 +1,14 @@
 ---
 import type { PublicLink } from '../data/profile';
+import { currentLocale } from '../i18n/locales';
+import { getUi } from '../i18n/ui';
 
 interface Props {
   link: PublicLink;
 }
 
 const { link } = Astro.props;
+const ui = getUi(currentLocale(Astro.currentLocale));
 const isExternal =
   link.href?.startsWith('http://') || link.href?.startsWith('https://');
 ---
@@ -18,7 +21,7 @@ const isExternal =
     target={isExternal ? '_blank' : undefined}
   >
     {link.label}
-    {isExternal && <span class="sr-only"> (opens in a new tab)</span>}
+    {isExternal && <span class="sr-only"> {ui.newTab}</span>}
   </a>
 ) : (
   <span>

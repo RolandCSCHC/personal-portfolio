@@ -1,22 +1,5 @@
 ---
-import Contact from '../components/sections/Contact.astro';
-import Hero from '../components/sections/Hero.astro';
-import { contactLinkList, contactLinks, profile } from '../data/profile';
-import BaseLayout from '../layouts/BaseLayout.astro';
+import HomePage from '../components/pages/HomePage.astro';
 ---
 
-<BaseLayout title={profile.meta.title} description={profile.meta.description}>
-  <Hero
-    title={profile.hero.title}
-    introduction={profile.hero.introduction}
-    description={profile.hero.description}
-    photograph={profile.hero.photograph}
-    projectsHref={profile.hero.projectsHref}
-    projectsLabel={profile.hero.projectsLabel}
-    contactHref={profile.hero.contactHref}
-    contactLabel={profile.hero.contactLabel}
-    github={contactLinks.github}
-    linkedin={contactLinks.linkedin}
-  />
-  <Contact title={profile.contact.title} links={contactLinkList} />
-</BaseLayout>
+<HomePage locale="en" />

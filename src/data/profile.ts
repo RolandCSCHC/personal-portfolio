@@ -1,7 +1,11 @@
 /**
- * English homepage facts.
+ * Locale-neutral facts. Translated copy lives in `src/i18n/ui`.
  * Leave a field unpublished until Roland supplies it. Do not invent a value.
  */
+
+export const siteName = 'Roland Schlösser';
+
+export const copyrightNotice = '© 2026 Roland Schlösser';
 
 export type PublicLink = {
   label: string;
@@ -58,196 +62,124 @@ export type ProjectCopy = {
   unpublished: string;
 };
 
-export const contactLinks: {
-  github: PublicLink;
-  linkedin: PublicLink;
-  email: PublicLink;
-} = {
+export const contactFacts = {
   github: {
     label: 'GitHub',
     href: 'https://github.com/RolandCSCHC',
-    unpublished: 'Not published yet',
   },
   linkedin: {
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/rolandschlosser/',
-    unpublished: 'Not published yet',
   },
   email: {
     label: 'rcschlosser@miuandes.cl',
     href: 'mailto:rcschlosser@miuandes.cl',
-    unpublished: 'Not published yet',
   },
 };
 
-export const contactLinkList: PublicLink[] = [
-  contactLinks.github,
-  contactLinks.linkedin,
-  contactLinks.email,
-];
+export type PeriodKind = 'part-time' | 'full-time';
 
-export const profile = {
-  meta: {
-    title: 'Roland Schlösser — Software Engineer',
-    description:
-      'Software Engineer who builds practical, scalable software, loves teaching programming, and enjoys turning complex problems into simple solutions.',
+export type ExperienceFact = {
+  id: 'teaching' | 'sharemaq';
+  organization: string;
+  periods: {
+    kind: PeriodKind | null;
+    start: string;
+    end: string | null;
+  }[];
+};
+
+export const experienceFacts: readonly ExperienceFact[] = [
+  {
+    id: 'teaching',
+    organization: 'Universidad de los Andes',
+    periods: [{ kind: null, start: '2014-03', end: '2026-07' }],
   },
-  hero: {
-    title: 'Software Engineer',
-    introduction: "Hi, I'm Roland Schlösser.",
-    description:
-      'Software Engineer who builds practical, scalable software, loves teaching programming, and enjoys turning complex problems into simple solutions.',
-    photograph: 'Photograph not published yet',
-    projectsHref: '/projects',
-    projectsLabel: 'Projects',
-    contactHref: '#contact',
-    contactLabel: 'Contact',
-  },
-  about: {
-    title: 'About',
-    paragraphs: [
-      'I am a software engineer working on full-stack development. I am interested in software architecture, cloud technologies, and building useful software products.',
-      'I taught programming at Universidad de los Andes, where I mentored students and supported course coordination.',
+  {
+    id: 'sharemaq',
+    organization: 'ShareMaq Tech',
+    periods: [
+      { kind: 'part-time', start: '2024-12', end: '2026-07' },
+      { kind: 'full-time', start: '2026-08', end: null },
     ],
   },
-  experience: {
-    title: 'Experience',
-    // Ordered by start date. Teaching begins in 2014 and overlaps ShareMaq.
-    roles: [
-      {
-        title: 'Teacher Assistant',
-        organization: 'Universidad de los Andes',
-        periods: [
-          {
-            label: null,
-            start: 'March 2014',
-            startDateTime: '2014-03',
-            end: 'July 2026',
-            endDateTime: '2026-07',
-          },
-        ],
-        missing: [],
-        lists: [
-          {
-            title: 'Subjects',
-            items: [
-              'Programming (Python)',
-              'Object-Oriented Programming (Python and functional programming with JavaScript)',
-              'Web Technologies (Ruby on Rails)',
-              'Applied Algorithmic Thinking (Python)',
-              'Software Design (design patterns)',
-              'Python and Databases (Python, SQL, web scraping, and APIs)',
-            ],
-          },
-          {
-            title: 'Responsibilities',
-            items: [
-              'Helping students with assignments',
-              'Grading and guiding course projects',
-              'Coordinating the class, grades, and other teaching assistants',
-              'Preparing students for laboratory assignments and exams',
-            ],
-          },
-        ],
-      },
-      {
-        title: 'Software Engineer',
-        organization: 'ShareMaq Tech',
-        periods: [
-          {
-            label: 'Part-time',
-            start: 'December 2024',
-            startDateTime: '2024-12',
-            end: 'July 2026',
-            endDateTime: '2026-07',
-          },
-          {
-            label: 'Full-time',
-            start: 'August 2026',
-            startDateTime: '2026-08',
-            end: 'Present',
-            endDateTime: null,
-          },
-        ],
-        missing: [],
-        lists: [
-          {
-            title: 'Responsibilities',
-            items: [
-              'Full-stack development',
-              'Software architecture',
-              'Code reviews',
-              'Production deployments',
-              'Cloud infrastructure',
-            ],
-          },
-        ],
-      },
-    ] satisfies ExperienceRole[],
+];
+
+export const educationFacts: readonly {
+  institution: string;
+  credential: 'computerScience' | null;
+  dates: string;
+  dateTime: string;
+}[] = [
+  {
+    institution: 'Universidad de los Andes',
+    credential: 'computerScience',
+    dates: '2026',
+    dateTime: '2026',
   },
-  education: {
-    title: 'Education',
-    entries: [
-      {
-        institution: 'Universidad de los Andes',
-        credential: 'Civil Engineer in Computer Science',
-        dates: '2026',
-        dateTime: '2026',
-      },
-      {
-        institution: 'Colegio Alemán de Santiago',
-        credential: null,
-        dates: '2009',
-        dateTime: '2009',
-      },
-    ] satisfies EducationEntry[],
+  {
+    institution: 'Colegio Alemán de Santiago',
+    credential: null,
+    dates: '2009',
+    dateTime: '2009',
   },
-  skills: {
-    title: 'Skills',
-    groups: [
-      {
-        title: 'Languages',
-        items: ['Python', 'TypeScript', 'JavaScript', 'C#'],
-      },
-      {
-        title: 'Backend',
-        items: ['Django', 'NestJS', 'ASP.NET Core'],
-      },
-      {
-        title: 'Frontend',
-        items: ['Vue.js', 'Angular', 'Next.js'],
-      },
-      {
-        title: 'Databases',
-        items: ['PostgreSQL', 'MySQL'],
-      },
-      {
-        title: 'Cloud and DevOps',
-        items: ['AWS', 'Docker', 'CI/CD'],
-      },
-      {
-        title: 'Other',
-        items: [
-          'Git',
-          'REST APIs',
-          'Software architecture',
-          'Testing',
-          'Object-oriented programming',
-        ],
-      },
-    ] satisfies SkillGroup[],
+];
+
+export const translatedSkillKeys = [
+  'softwareArchitecture',
+  'testing',
+  'objectOrientedProgramming',
+] as const;
+
+export type TranslatedSkill = (typeof translatedSkillKeys)[number];
+
+export function isTranslatedSkill(value: string): value is TranslatedSkill {
+  return translatedSkillKeys.some((key) => key === value);
+}
+
+export type SkillGroupId =
+  'languages' | 'backend' | 'frontend' | 'databases' | 'cloud' | 'other';
+
+export const skillFacts: readonly {
+  id: SkillGroupId;
+  items: readonly string[];
+}[] = [
+  {
+    id: 'languages',
+    items: ['Python', 'TypeScript', 'JavaScript', 'C#'],
   },
-  projects: {
-    title: 'Projects',
-    overview: 'Overview',
-    features: 'Features',
-    stack: 'Stack',
-    screenshotUnpublished: 'Screenshot not published yet',
-    live: 'Live application',
-    repository: 'GitHub',
-    unpublished: 'Not published yet',
-  } satisfies ProjectCopy,
-  contact: {
-    title: 'Contact',
+  {
+    id: 'backend',
+    items: ['Django', 'NestJS', 'ASP.NET Core'],
   },
-};
+  {
+    id: 'frontend',
+    items: ['Vue.js', 'Angular', 'Next.js'],
+  },
+  {
+    id: 'databases',
+    items: ['PostgreSQL', 'MySQL'],
+  },
+  {
+    id: 'cloud',
+    items: ['AWS', 'Docker', 'CI/CD'],
+  },
+  {
+    id: 'other',
+    items: [
+      'Git',
+      'REST APIs',
+      'softwareArchitecture',
+      'testing',
+      'objectOrientedProgramming',
+    ],
+  },
+];
+
+export function pageTitle(label: string): string {
+  return `${label} — ${siteName}`;
+}
+
+export function homeTitle(role: string): string {
+  return `${siteName} — ${role}`;
+}

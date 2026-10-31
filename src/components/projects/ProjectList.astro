@@ -1,10 +1,10 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import type { ProjectCopy } from '../../data/profile';
+import type { ProjectView } from '../../data/projects';
 import ProjectCard from './ProjectCard.astro';
 
 interface Props {
-  projects: CollectionEntry<'projects'>[];
+  projects: ProjectView[];
   labels: ProjectCopy;
   heading: 'h2' | 'h3';
 }

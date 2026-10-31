@@ -1,0 +1,28 @@
+---
+import { pageTitle } from '../../data/profile';
+import { getProfile } from '../../i18n/profile';
+import type { Locale } from '../../i18n/locales';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Experience from '../sections/Experience.astro';
+import Skills from '../sections/Skills.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const profile = getProfile(locale);
+---
+
+<BaseLayout
+  title={pageTitle(profile.experience.title)}
+  description={profile.experience.description}
+  locale={locale}
+>
+  <Experience
+    title={profile.experience.title}
+    roles={profile.experience.roles}
+    page
+  />
+  <Skills title={profile.skills.title} groups={profile.skills.groups} />
+</BaseLayout>

@@ -1,28 +1,49 @@
 {
   "name": "Relovia",
-  "summary": "A relocation planning application for organizing domestic and international relocations, documents, tasks, expenses, and moving logistics.",
-  "features": [
-    "Organizing domestic and international relocations",
-    "Organizing documents",
-    "Organizing tasks",
-    "Organizing expenses",
-    "Organizing moving logistics"
-  ],
+  "summary": {
+    "en": "A relocation planning application for organizing domestic and international relocations, documents, tasks, expenses, and moving logistics.",
+    "es": "Aplicación para planificar mudanzas nacionales e internacionales y organizar documentos, tareas, gastos y la logística del traslado."
+  },
+  "features": {
+    "en": [
+      "Organizing domestic and international relocations",
+      "Organizing documents",
+      "Organizing tasks",
+      "Organizing expenses",
+      "Organizing moving logistics"
+    ],
+    "es": [
+      "Organizar mudanzas nacionales e internacionales",
+      "Organizar documentos",
+      "Organizar tareas",
+      "Organizar gastos",
+      "Organizar la logística del traslado"
+    ]
+  },
   "stack": ["Angular", "TypeScript", "C#", "ASP.NET Core", "PostgreSQL"],
   "liveUrl": "https://relovia.rolandschlosser.dev",
   "repositories": [
     {
-      "label": "GitHub backend",
+      "label": {
+        "en": "GitHub backend",
+        "es": "GitHub (backend)"
+      },
       "url": "https://github.com/RolandCSCHC/relovia-api"
     },
     {
-      "label": "GitHub frontend",
+      "label": {
+        "en": "GitHub frontend",
+        "es": "GitHub (frontend)"
+      },
       "url": "https://github.com/RolandCSCHC/relovia-web"
     }
   ],
   "image": {
     "src": "/images/projects/relovia.jpg",
-    "alt": "Relovia relocation from Santiago, Chile to New Zealand, open on the Tasks tab.",
+    "alt": {
+      "en": "Relovia relocation from Santiago, Chile to New Zealand, open on the Tasks tab.",
+      "es": "Mudanza en Relovia desde Santiago de Chile hacia Nueva Zelanda, abierta en la pestaña Tasks."
+    },
     "width": 1600,
     "height": 823
   },

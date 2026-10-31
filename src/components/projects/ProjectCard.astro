@@ -1,19 +1,19 @@
 ---
-import type { CollectionEntry } from 'astro:content';
 import type { ProjectCopy } from '../../data/profile';
+import type { ProjectView } from '../../data/projects';
 import ProjectLinks from './ProjectLinks.astro';
 import ProjectMedia from './ProjectMedia.astro';
 import TechnologyList from './TechnologyList.astro';
 
 interface Props {
-  project: CollectionEntry<'projects'>;
+  project: ProjectView;
   labels: ProjectCopy;
   heading: 'h2' | 'h3';
 }
 
 const { project, labels, heading } = Astro.props;
 const Heading = heading;
-const { name, summary, stack, liveUrl, repositories, image } = project.data;
+const { name, summary, stack, liveUrl, repositories, image, href } = project;
 ---
 
 <article class="flex h-full flex-col border border-border bg-surface p-6">
@@ -23,7 +23,7 @@ const { name, summary, stack, liveUrl, repositories, image } = project.data;
     </div>
   )}
   <Heading>
-    <a class="text-foreground underline" href={`/projects/${project.id}`}>
+    <a class="text-foreground underline" href={href}>
       {name}
     </a>
   </Heading>

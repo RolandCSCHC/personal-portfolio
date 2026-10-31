@@ -8,6 +8,8 @@ const locales = ['en', 'es'];
 
 // https://astro.build/config
 export default defineConfig({
+  // Canonical, hreflang, and Open Graph URLs use the production origin.
+  site: 'https://rolandschlosser.dev',
   output: 'static',
   trailingSlash: 'never',
   i18n: {

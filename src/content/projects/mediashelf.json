@@ -1,22 +1,38 @@
 {
   "name": "MediaShelf",
-  "summary": "A personal media-tracking application for organizing movies and television series, managing watchlists, and tracking viewing progress.",
-  "features": [
-    "Organizing movies and television series",
-    "Managing watchlists",
-    "Tracking viewing progress"
-  ],
+  "summary": {
+    "en": "A personal media-tracking application for organizing movies and television series, managing watchlists, and tracking viewing progress.",
+    "es": "Aplicación personal para organizar películas y series, administrar listas de visualización y registrar el progreso de visualización."
+  },
+  "features": {
+    "en": [
+      "Organizing movies and television series",
+      "Managing watchlists",
+      "Tracking viewing progress"
+    ],
+    "es": [
+      "Organizar películas y series",
+      "Administrar listas de visualización",
+      "Registrar el progreso de visualización"
+    ]
+  },
   "stack": ["Next.js", "TypeScript", "NestJS", "Prisma", "PostgreSQL"],
   "liveUrl": "https://mediashelf.rolandschlosser.dev",
   "repositories": [
     {
-      "label": "GitHub",
+      "label": {
+        "en": "GitHub",
+        "es": "GitHub"
+      },
       "url": "https://github.com/RolandCSCHC/mediashelf"
     }
   ],
   "image": {
     "src": "/images/projects/mediashelf.jpg",
-    "alt": "MediaShelf private library named ROLAND's shelf, showing a grid of movie posters.",
+    "alt": {
+      "en": "MediaShelf private library named ROLAND's shelf, showing a grid of movie posters.",
+      "es": "Biblioteca privada de MediaShelf llamada ROLAND's shelf, con una cuadrícula de pósters de películas."
+    },
     "width": 1600,
     "height": 829
   },

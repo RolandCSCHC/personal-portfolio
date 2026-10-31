@@ -1,6 +1,16 @@
+---
+import type { Ui } from '../../i18n/ui';
+
+interface Props {
+  labels: Ui['theme'];
+}
+
+const { labels } = Astro.props;
+---
+
 <div class="inline-flex items-center gap-2">
   <span id="theme-label" class="font-mono text-xs tracking-wide text-muted">
-    Theme
+    {labels.label}
   </span>
   <span class="relative inline-flex">
     <select
@@ -9,9 +19,9 @@
       data-theme-control
       autocomplete="off"
     >
-      <option value="light">Light</option>
-      <option value="dark">Dark</option>
-      <option value="system">System</option>
+      <option value="light">{labels.light}</option>
+      <option value="dark">{labels.dark}</option>
+      <option value="system">{labels.system}</option>
     </select>
     <svg
       class="pointer-events-none absolute top-1/2 right-2 size-3 -translate-y-1/2 text-muted"

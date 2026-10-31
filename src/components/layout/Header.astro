@@ -1,34 +1,62 @@
 ---
+import { loadProjects } from '../../data/projects';
+import type { Locale } from '../../i18n/locales';
+import { locales } from '../../i18n/locales';
+import { equivalentPath, localeHref, toRoutePath } from '../../i18n/routes';
+import { getUi } from '../../i18n/ui';
 import LanguageSwitch from './LanguageSwitch.astro';
 import ThemeSwitch from './ThemeSwitch.astro';
 
-const pathname = Astro.url.pathname;
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const ui = getUi(locale);
+const routePath = toRoutePath(Astro.url.pathname);
+const projects = await loadProjects();
+const slugs = projects.map((project) => project.id);
+const homeHref = localeHref(locale, '');
 const links = [
-  { href: '/', label: 'Home', current: pathname === '/' },
   {
-    href: '/projects',
-    label: 'Projects',
-    current: pathname === '/projects' || pathname.startsWith('/projects/'),
+    href: homeHref,
+    label: ui.nav.home,
+    current: routePath === '',
   },
-  { href: '/about', label: 'About', current: pathname === '/about' },
   {
-    href: '/experience',
-    label: 'Experience',
-    current: pathname === '/experience',
+    href: localeHref(locale, 'projects'),
+    label: ui.nav.projects,
+    current: routePath === 'projects' || routePath.startsWith('projects/'),
+  },
+  {
+    href: localeHref(locale, 'about'),
+    label: ui.nav.about,
+    current: routePath === 'about',
+  },
+  {
+    href: localeHref(locale, 'experience'),
+    label: ui.nav.experience,
+    current: routePath === 'experience',
   },
 ];
+const languageOptions = locales.map((code) => ({
+  code,
+  label: ui.language.names[code],
+  href: equivalentPath(code, Astro.url.pathname, slugs),
+  current: code === locale,
+}));
 ---
 
 <header class="border-b border-border bg-surface">
   <div class="page-container flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between lg:py-5">
     <a
-      href="/"
+      href={homeHref}
       class="shrink-0 text-base font-semibold tracking-tight whitespace-nowrap text-foreground no-underline"
     >
       Roland Schlösser
     </a>
     <div class="flex flex-col gap-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-end lg:gap-x-6 lg:gap-y-3">
-      <nav aria-label="Primary">
+      <nav aria-label={ui.nav.label}>
         <ul class="flex flex-wrap gap-x-4 gap-y-2">
           {links.map((link) => (
             <li>
@@ -46,8 +74,8 @@ const links = [
           ))}
         </ul>
       </nav>
-      <LanguageSwitch />
-      <ThemeSwitch />
+      <LanguageSwitch label={ui.language.label} options={languageOptions} />
+      <ThemeSwitch labels={ui.theme} />
     </div>
   </div>
 </header>

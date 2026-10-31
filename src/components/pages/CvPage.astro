@@ -1,0 +1,24 @@
+---
+import { pageTitle } from '../../data/profile';
+import { getProfile } from '../../i18n/profile';
+import type { Locale } from '../../i18n/locales';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Section from '../sections/Section.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const profile = getProfile(locale);
+---
+
+<BaseLayout
+  title={pageTitle(profile.cv.title)}
+  description={profile.cv.unpublished}
+  locale={locale}
+>
+  <Section id="cv" title={profile.cv.title} page>
+    <p class="reading-measure text-muted">{profile.cv.unpublished}</p>
+  </Section>
+</BaseLayout>

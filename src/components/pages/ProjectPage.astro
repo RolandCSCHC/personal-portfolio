@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { pageTitle } from '../../data/profile';
+import { presentProject } from '../../data/projects';
+import { getProfile } from '../../i18n/profile';
+import type { Locale } from '../../i18n/locales';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectDetail from '../projects/ProjectDetail.astro';
+
+interface Props {
+  locale: Locale;
+  project: CollectionEntry<'projects'>;
+}
+
+const { locale, project } = Astro.props;
+const profile = getProfile(locale);
+const view = presentProject(project, locale);
+---
+
+<BaseLayout
+  title={pageTitle(view.name)}
+  description={view.summary}
+  locale={locale}
+>
+  <ProjectDetail project={view} labels={profile.projects} />
+</BaseLayout>

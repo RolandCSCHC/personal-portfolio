@@ -1,16 +1,54 @@
 ---
-import '../styles/global.css';
+import { getRelativeLocaleUrl } from 'astro:i18n';
 import Footer from '../components/layout/Footer.astro';
 import Header from '../components/layout/Header.astro';
-import { defaultLocale } from '../i18n/locales';
+import {
+  currentLocale,
+  defaultLocale,
+  locales,
+  openGraphLocale,
+  type Locale,
+} from '../i18n/locales';
+import { toRoutePath } from '../i18n/routes';
+import { getUi } from '../i18n/ui';
+import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
+  locale: Locale;
 }
 
-const { title, description } = Astro.props;
-const locale = Astro.currentLocale ?? defaultLocale;
+const { title, description, locale } = Astro.props;
+const routeLocale = currentLocale(Astro.currentLocale);
+
+if (routeLocale !== locale) {
+  throw new Error(
+    `Page locale is ${locale}, but the route locale is ${Astro.currentLocale ?? 'missing'}.`,
+  );
+}
+
+if (!Astro.site) {
+  throw new Error(
+    'Set site in astro.config.mjs before rendering canonical URLs.',
+  );
+}
+
+const routePath = toRoutePath(Astro.url.pathname);
+const ui = getUi(locale);
+const site = Astro.site;
+
+function absolute(code: Locale): string {
+  const relative = getRelativeLocaleUrl(code, routePath || undefined);
+  return new URL(relative, site).href;
+}
+
+const canonical = absolute(locale);
+const alternates = locales.map((code) => ({
+  hreflang: code,
+  href: absolute(code),
+}));
+const xDefault = absolute(defaultLocale);
 ---
 
 <!doctype html>
@@ -45,18 +83,37 @@ const locale = Astro.currentLocale ?? defaultLocale;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alternates.map((alternate) => (
+      <link
+        rel="alternate"
+        hreflang={alternate.hreflang}
+        href={alternate.href}
+      />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={xDefault} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content={openGraphLocale[locale]} />
+    {locales
+      .filter((code) => code !== locale)
+      .map((code) => (
+        <meta property="og:locale:alternate" content={openGraphLocale[code]} />
+      ))}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body class="flex min-h-dvh flex-col bg-background font-sans text-foreground">
     <a class="skip-link" href="#content">
-      Skip to content
+      {ui.skip}
     </a>
-    <Header />
+    <Header locale={locale} />
     <main id="content" class="flex flex-1 flex-col">
       <slot />
     </main>
-    <Footer />
+    <Footer locale={locale} />
   </body>
 </html>

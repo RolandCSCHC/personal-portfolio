@@ -1,0 +1,32 @@
+---
+import { pageTitle } from '../../data/profile';
+import { loadProjectViews } from '../../data/projects';
+import { getProfile } from '../../i18n/profile';
+import type { Locale } from '../../i18n/locales';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectList from '../projects/ProjectList.astro';
+import Section from '../sections/Section.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const profile = getProfile(locale);
+const projects = await loadProjectViews(locale);
+const description = projects.map((project) => project.summary).join(' ');
+
+if (description.trim() === '') {
+  throw new Error('The projects page is missing its description.');
+}
+---
+
+<BaseLayout
+  title={pageTitle(profile.projects.title)}
+  description={description}
+  locale={locale}
+>
+  <Section id="projects" title={profile.projects.title} page>
+    <ProjectList projects={projects} labels={profile.projects} heading="h2" />
+  </Section>
+</BaseLayout>

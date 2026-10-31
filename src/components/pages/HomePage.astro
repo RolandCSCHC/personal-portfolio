@@ -1,0 +1,35 @@
+---
+import { homeTitle } from '../../data/profile';
+import { getProfile } from '../../i18n/profile';
+import type { Locale } from '../../i18n/locales';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Contact from '../sections/Contact.astro';
+import Hero from '../sections/Hero.astro';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const profile = getProfile(locale);
+---
+
+<BaseLayout
+  title={homeTitle(profile.hero.title)}
+  description={profile.hero.description}
+  locale={locale}
+>
+  <Hero
+    title={profile.hero.title}
+    introduction={profile.hero.introduction}
+    description={profile.hero.description}
+    photograph={profile.hero.photograph}
+    projectsHref={profile.hero.projectsHref}
+    projectsLabel={profile.hero.projectsLabel}
+    contactHref={profile.hero.contactHref}
+    contactLabel={profile.hero.contactLabel}
+    github={profile.github}
+    linkedin={profile.linkedin}
+  />
+  <Contact title={profile.contact.title} links={profile.contact.links} />
+</BaseLayout>
