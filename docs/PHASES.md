@@ -290,7 +290,7 @@ Verified on 31 October 2026 in light and dark themes, at a desktop width and at 
 
 ## Phase 4 — Personal projects showcase
 
-**Status:** Not started  
+**Status:** Completed  
 **Depends on:** Phases 2 and 3
 
 ### Objective
@@ -301,26 +301,26 @@ Present MediaShelf and Relovia as real software projects, on the homepage and on
 
 #### Shared project model
 
-- [ ] Store each project once, in an Astro content collection or another typed content source.
-- [ ] Use that source for both the homepage cards and the detail pages.
-- [ ] Build reusable project card and project detail components.
+- [x] Store each project once, in an Astro content collection or another typed content source.
+- [x] Use that source for both the homepage cards and the detail pages.
+- [x] Build reusable project card and project detail components.
 
 #### Projects index
 
-- [ ] Add `/projects`, because the public route list requires it.
-- [ ] Show both projects with the same facts used on the homepage.
+- [x] Add `/projects`, because the public route list requires it.
+- [x] Show both projects with the same facts used on the homepage.
 
 #### Project cards
 
 Each card includes:
 
-- [ ] Name.
-- [ ] Short description.
-- [ ] Screenshot or preview, when a real image has been supplied.
-- [ ] Technology labels.
-- [ ] Link to the detail page.
-- [ ] Link to the live application.
-- [ ] GitHub link when the repository URL has been supplied.
+- [x] Name.
+- [x] Short description.
+- [x] Screenshot or preview, when a real image has been supplied.
+- [x] Technology labels.
+- [x] Link to the detail page.
+- [x] Link to the live application.
+- [x] GitHub link when the repository URL has been supplied.
 
 #### MediaShelf
 
@@ -329,11 +329,11 @@ Live application: [https://mediashelf.rolandschlosser.dev](https://mediashelf.ro
 
 A personal media-tracking application for organizing movies and television series, managing watchlists, and tracking viewing progress.
 
-- [ ] Overview, the problem being solved, and the main features that have actually been confirmed.
-- [ ] Stack: Next.js, TypeScript, NestJS, Prisma, PostgreSQL.
-- [ ] Architecture overview and technical decisions, using only confirmed information.
-- [ ] Real screenshots, or a labeled placeholder until screenshots are provided.
-- [ ] Live application link and GitHub link when the repository URL is provided.
+- [x] Overview, the problem being solved, and the main features that have actually been confirmed.
+- [x] Stack: Next.js, TypeScript, NestJS, Prisma, PostgreSQL.
+- [x] Architecture overview and technical decisions, using only confirmed information.
+- [x] Real screenshots, or a labeled placeholder until screenshots are provided.
+- [x] Live application link and GitHub link when the repository URL is provided.
 
 #### Relovia
 
@@ -342,11 +342,11 @@ Live application: [https://relovia.rolandschlosser.dev](https://relovia.rolandsc
 
 A relocation planning application for organizing domestic and international relocations, documents, tasks, expenses, and moving logistics.
 
-- [ ] Overview, the problem being solved, and the main features that have actually been confirmed.
-- [ ] Stack: Angular, TypeScript, C#, ASP.NET Core, PostgreSQL.
-- [ ] Architecture overview and technical decisions, using only confirmed information.
-- [ ] Real screenshots, or a labeled placeholder until screenshots are provided.
-- [ ] Live application link and GitHub link when the repository URL is provided.
+- [x] Overview, the problem being solved, and the main features that have actually been confirmed.
+- [x] Stack: Angular, TypeScript, C#, ASP.NET Core, PostgreSQL.
+- [x] Architecture overview and technical decisions, using only confirmed information.
+- [x] Real screenshots, or a labeled placeholder until screenshots are provided.
+- [x] Live application link and GitHub link when the repository URL is provided.
 
 ### Technical requirements
 
@@ -369,13 +369,17 @@ Feature descriptions that go beyond the summaries above require confirmation. Re
 
 ### Acceptance criteria
 
-- [ ] Both projects appear on the homepage.
-- [ ] Both detail pages and the projects index work.
-- [ ] Live application links work.
-- [ ] Descriptions match the confirmed product summaries.
-- [ ] Technology labels are consistent.
-- [ ] Images have appropriate alternative text.
-- [ ] Cards and detail pages share one content source.
+- [x] Both projects appear on the homepage.
+- [x] Both detail pages and the projects index work.
+- [x] Live application links work.
+- [x] Descriptions match the confirmed product summaries.
+- [x] Technology labels are consistent.
+- [x] Images have appropriate alternative text.
+- [x] Cards and detail pages share one content source.
+
+Verified on 31 October 2026 in light and dark themes, at a desktop width and at 390px. `pnpm check`, `pnpm lint`, `pnpm format:check`, and `pnpm build` passed. MediaShelf and Relovia live applications responded. Screenshots remain labeled as unpublished. An image cannot be stored without alternative text.
+
+Revised later on 31 October 2026. Roland removed the project cards from the homepage. The hero still links to `/projects`. He supplied the repositories: MediaShelf at `https://github.com/RolandCSCHC/mediashelf`, Relovia backend at `https://github.com/RolandCSCHC/relovia-api`, and Relovia frontend at `https://github.com/RolandCSCHC/relovia-web`. He also removed the architecture section from the detail pages, because that explanation stays in each repository README. He then supplied screenshots for both projects. They are published from `public/images/projects/`.
 
 ---
 

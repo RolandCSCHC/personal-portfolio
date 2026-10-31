@@ -55,7 +55,7 @@ Principles: timeless presentation, clear typography, generous whitespace, neutra
 | 1     | Repository and project foundation         | —                                              | Completed   |
 | 2     | Design system and global layout           | Phase 1                                        | Completed   |
 | 3     | Homepage and professional profile         | Phase 2                                        | Completed   |
-| 4     | Personal projects showcase                | Phases 2 and 3                                 | Not started |
+| 4     | Personal projects showcase                | Phases 2 and 3                                 | Completed   |
 | 5     | Internationalization                      | Phases 3 and 4                                 | Not started |
 | 6     | Personal assets and CV                    | Phases 3 and 5 for the pages that display them | Not started |
 | 7     | SEO, accessibility, and quality assurance | Phases 2–6                                     | Not started |
@@ -68,7 +68,7 @@ Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those
 - [x] Phase 1 — Repository and project foundation
 - [x] Phase 2 — Design system and global layout
 - [x] Phase 3 — Homepage and professional profile
-- [ ] Phase 4 — Personal projects showcase
+- [x] Phase 4 — Personal projects showcase
 - [ ] Phase 5 — Internationalization
 - [ ] Phase 6 — Personal assets and CV
 - [ ] Phase 7 — SEO, accessibility, and quality assurance
@@ -86,11 +86,11 @@ Completed on 31 October 2026. Semantic colors, locally hosted Inter and JetBrain
 
 ### Phase 3 — Homepage and professional profile
 
-Completed on 31 October 2026. Home, About, Experience, and Projects are separate pages. Contact links, teaching, and education were filled from details Roland supplied the same day. The photograph is still a labeled placeholder. `/projects` is an unpublished notice until Phase 4.
+Completed on 31 October 2026. Home, About, Experience, and Projects are separate pages. Contact links, teaching, and education were filled from details Roland supplied the same day. The photograph is still a labeled placeholder.
 
 ### Phase 4 — Personal projects showcase
 
-Add the projects index, homepage project cards, and detail pages for MediaShelf and Relovia. Share one typed content source between the cards and the detail pages. Use real screenshots only.
+Completed on 31 October 2026. MediaShelf and Relovia are stored in one Astro content collection and shown at `/projects` and on their detail pages. Later the same day, Roland removed the project cards from the homepage, supplied the repository URLs and screenshots, and removed the architecture section from the detail pages.
 
 ### Phase 5 — Internationalization
 
@@ -113,6 +113,5 @@ Connect the GitHub repository to Vercel, attach `rolandschlosser.dev` through Cl
 These do not reopen Phase 1. They need a decision before the related phase is published.
 
 - Roland approved a one-time force-push of local `f086e69` to `origin/main`. It has not been run. GitHub still has `9400b78`, whose message includes the `Co-authored-by` trailer.
-- Email, LinkedIn, and the public GitHub profile URL are not yet supplied.
-- Education details, the university name, and teaching dates are not yet supplied.
-- MediaShelf and Relovia repository URLs, screenshots, the photograph, and both CV files are not yet supplied.
+- The professional photograph is not yet supplied.
+- Both CV files are not on the site yet. Roland supplied the English CV on 31 October 2026 as the source for teaching and education.

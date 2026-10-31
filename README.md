@@ -2,7 +2,7 @@
 
 Personal portfolio website for Roland Schlösser, a software engineer. The site will present professional experience, technical skills, education, and personal projects, and give recruiters a direct way to get in touch.
 
-The English homepage presents Roland’s professional profile. Spanish pages, project write-ups, the photograph, and the CV come in later phases.
+The English site presents Roland’s professional profile and the MediaShelf and Relovia project pages. Spanish pages, the photograph, and the CV come in later phases.
 
 **Website:** [rolandschlosser.dev](https://rolandschlosser.dev)
 
@@ -101,10 +101,15 @@ personal-portfolio/
 ├── src/
 │   ├── components/
 │   │   ├── layout/
+│   │   ├── projects/
 │   │   ├── sections/
 │   │   └── PublicLink.astro
+│   ├── content/
+│   │   └── projects/
+│   ├── content.config.ts
 │   ├── data/
-│   │   └── profile.ts
+│   │   ├── profile.ts
+│   │   └── projects.ts
 │   ├── i18n/
 │   │   └── locales.ts
 │   ├── layouts/
@@ -113,7 +118,7 @@ personal-portfolio/
 │   │   ├── index.astro
 │   │   ├── about.astro
 │   │   ├── experience.astro
-│   │   └── projects.astro
+│   │   └── projects/
 │   ├── scripts/
 │   │   └── theme.ts
 │   └── styles/
@@ -137,11 +142,8 @@ personal-portfolio/
 Directories below are part of the intended layout and are created when they first receive files:
 
 - `public/images/profile/` for the professional photograph
-- `public/images/projects/` for project images
+- `public/images/projects/` for project screenshots. The current files are `mediashelf.jpg` and `relovia.jpg`.
 - `public/cv/` for the downloadable CV
-- `src/components/sections/` and `src/components/projects/` for later interface components
-- `src/content/projects/` for project content
-- `src/data/` for structured site data
 - `src/pages/es/` for Spanish pages
 
 ### Languages and routes
@@ -160,4 +162,4 @@ English is the default language and has no URL prefix. Spanish uses the `/es` pr
 
 English pages live in `src/pages/`. Spanish pages will live in `src/pages/es/`. Shared markup belongs in layouts and components so each locale file stays thin. Locale codes are defined in `astro.config.mjs` and `src/i18n/locales.ts` and must stay aligned. The header reserves a language control. Español stays inactive until the translations exist.
 
-Home is the introduction and contact. About includes education, and Experience includes skills. `/projects` currently says that selected projects are not published yet. The implementation roadmap is in `docs/ROADMAP.md`.
+Home is the introduction and contact. About includes education, and Experience includes skills. `/projects` lists MediaShelf and Relovia, and each project has a detail page. The implementation roadmap is in `docs/ROADMAP.md`.

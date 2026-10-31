@@ -29,7 +29,7 @@ Record confirmed choices here. Proposed values stay in the “Awaiting approval�
 - **Header navigation.** Approved on 31 October 2026. The header links to both About and Experience.
 - **Hero description.** Approved on 31 October 2026. “Software Engineer who builds practical, scalable software, loves teaching programming, and enjoys turning complex problems into simple solutions.”
 - **Skills.** Approved on 31 October 2026. Publish MySQL and testing along with the rest of the Phase 3 skill list.
-- **Projects index.** Approved on 31 October 2026. Phase 4 adds `/projects` in addition to the homepage project section.
+- **Projects index.** Approved on 31 October 2026, revised the same day. `/projects` lists MediaShelf and Relovia. The homepage does not. The hero still links to `/projects`.
 - **Theme loading.** Approved on 31 October 2026. A small inline script in the document head applies the saved or system theme before paint.
 - **Project content.** Approved on 31 October 2026. MediaShelf and Relovia are stored in an Astro content collection.
 - **www host.** Approved on 31 October 2026. `www.rolandschlosser.dev` redirects to `https://rolandschlosser.dev`.
@@ -38,7 +38,7 @@ Record confirmed choices here. Proposed values stay in the “Awaiting approval�
 
 - **Supplied facts only.** Employment, education, project features, metrics, contact details, and social URLs are not invented. Missing values stay labeled until Roland supplies them.
 - **Real personal assets.** The photograph, CV files, and project screenshots are supplied. They are not generated.
-- **Two public projects.** MediaShelf and Relovia are the projects to be showcased, with their confirmed stacks and live URLs.
+- **Two public projects.** MediaShelf and Relovia are the projects to be showcased, with their confirmed stacks, live URLs, and repository URLs.
 
 ### Hosting
 
@@ -75,10 +75,7 @@ No proposals are waiting. New proposals go here until they are accepted.
 
 Do not publish these until Roland provides them.
 
-- MediaShelf repository URL.
-- Relovia repository URL.
 - Professional photograph.
-- Project screenshots.
 - Downloadable English and Spanish CV files. Roland supplied the English CV on 31 October 2026 as the source for teaching and education. The file is not on the site yet.
 
 ## Open Git state
@@ -146,6 +143,24 @@ Phase: 8
 Decision: Publish `rcschlosser@miuandes.cl`, `https://www.linkedin.com/in/rolandschlosser/`, and `https://github.com/RolandCSCHC`. Teaching and education use the English CV Roland supplied on this date.
 Reason: Roland provided the addresses and the CV.
 Phase: 3
+
+### 2026-10-31 — Project screenshots
+
+Decision: Publish the MediaShelf and Relovia screenshots Roland placed in `public/images/projects/`. Serve them as 1600-pixel-wide JPEGs.
+Reason: Roland supplied the images. The original MediaShelf PNG was 4.8MB, larger than the page needs.
+Phase: 4
+
+### 2026-10-31 — Project architecture section
+
+Decision: Do not publish an architecture section on the project pages. Readers follow the GitHub links and read each repository README.
+Reason: Roland asked to remove it.
+Phase: 4
+
+### 2026-10-31 — Project placement and repositories
+
+Decision: Remove the project cards from the homepage. Keep them on `/projects` and the detail pages. Publish MediaShelf at `https://github.com/RolandCSCHC/mediashelf`, Relovia backend at `https://github.com/RolandCSCHC/relovia-api`, and Relovia frontend at `https://github.com/RolandCSCHC/relovia-web`.
+Reason: Roland asked for projects only on the Projects page and supplied the repository URLs.
+Phase: 4
 
 ### 2026-10-31 — Separate menu pages
 

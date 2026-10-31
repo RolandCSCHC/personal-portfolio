@@ -27,16 +27,23 @@ TypeScript 7 is not used because `@astrojs/check` accepts TypeScript 5 or 6. `@l
 src/
 ├── components/
 │   ├── layout/          Header, footer, language control, theme control
+│   ├── projects/        Card, list, detail, media, technology labels
 │   ├── sections/        Homepage sections
 │   └── PublicLink.astro
-├── data/profile.ts      English profile facts and contact links
+├── content/projects/    mediashelf.json and relovia.json
+├── content.config.ts    Projects collection schema
+├── data/
+│   ├── profile.ts       English profile facts, contact links, project labels
+│   └── projects.ts      Loads the collection in display order
 ├── i18n/locales.ts
 ├── layouts/BaseLayout.astro
 ├── pages/
 │   ├── index.astro      Introduction and contact
 │   ├── about.astro
 │   ├── experience.astro
-│   └── projects.astro   Placeholder until Phase 4
+│   └── projects/
+│       ├── index.astro
+│       └── [slug].astro
 ├── scripts/theme.ts
 └── styles/              global.css and fonts.css
 public/
@@ -47,6 +54,8 @@ public/
 `src/i18n/locales.ts` exports `en` and `es`, with `en` as the default. The same codes are set in `astro.config.mjs`. English routes have no prefix. Spanish files, when added, belong in `src/pages/es/`.
 
 `BaseLayout.astro` renders the document shell, header, main content, and footer. It sets `lang` from `Astro.currentLocale` and applies the saved theme before paint. The English homepage is composed of section components. Copy and unpublished fields live in `src/data/profile.ts`, and the page passes that copy into the sections so a later Spanish page can reuse them. GitHub, LinkedIn, and email render through `PublicLink`. A null `href` shows the label and “Not published yet” instead of a link.
+
+MediaShelf and Relovia live in the `projects` content collection defined in `src/content.config.ts`. Each record holds the name, summary, confirmed features, stack, live URL, repository links, screenshot, and display order. Each screenshot is a 1600-pixel-wide JPEG in `public/images/projects/`, with alternative text, width, and height. Repository links are a list, so Relovia can publish both its backend and frontend repositories. `loadProjects()` is the only read path. `/projects`, `/projects/mediashelf`, `/projects/relovia`, and the footer application links all use it. The homepage does not list the projects. English section labels stay in `profile.projects` and are passed into the project components.
 
 `src/styles/global.css` defines the approved light and dark palettes as semantic variables. Tailwind utilities reference those variables. Inter and JetBrains Mono are self-hosted from their Latin variable files. The content column is 70rem (1120px). Prose is limited to 45rem (720px). Below 64rem the header stacks; from 64rem upward it is a horizontal row.
 
@@ -85,18 +94,7 @@ Page files stay thin. A locale page selects the language and renders a shared co
 
 ### Content
 
-Use an Astro content collection, defined in `src/content.config.ts`, for MediaShelf and Relovia. The collection is the only source for:
-
-- name and summary
-- confirmed features and technical decisions
-- stack
-- live URL
-- repository URL, when supplied
-- screenshot paths and alternative text
-
-The homepage cards, `/projects`, and the two detail pages read that collection. Do not create a second copy of the same fields in a page component.
-
-If a content collection proves unnecessary for two records, a single typed module in `src/content/projects/` is acceptable, provided both the cards and the detail pages import it. That substitution should be recorded in [DECISIONS.md](DECISIONS.md) before it is used.
+The English project collection is implemented. Phase 5 adds Spanish copy for the same records and the project UI labels. Do not create a second English copy of the project fields.
 
 ### Internationalization
 
@@ -134,7 +132,7 @@ That script is the client-side JavaScript required to prevent a theme flash. Oth
 | Section components              | One homepage region each                                      |
 | Project card and project detail | Presentation only; data comes from the content source         |
 
-The header links to Home, Projects, About, and Experience. Language and theme are dropdowns. The language dropdown shows English as current and leaves Español inactive until Phase 5. The theme dropdown offers light, dark, and system. GitHub, LinkedIn, and email are links in the footer, the hero, and the contact section. The hero links to `/projects` and `#contact`. `/projects` currently says that selected projects are not published yet. Phase 4 replaces that page with MediaShelf and Relovia.
+The header links to Home, Projects, About, and Experience. Language and theme are dropdowns. The language dropdown shows English as current and leaves Español inactive until Phase 5. The theme dropdown offers light, dark, and system. GitHub, LinkedIn, and email are links in the footer, the hero, and the contact section. The hero links to `/projects` and `#contact`. `/projects` lists MediaShelf and Relovia. Each detail page shows the supplied screenshot, the confirmed summary and features, the stack, the live application, and the supplied GitHub links. Architecture stays in each project's repository README.
 
 ### Hosting
 
