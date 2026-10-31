@@ -47,6 +47,17 @@ export type SkillGroup = {
   items: string[];
 };
 
+export type ProjectCopy = {
+  title: string;
+  overview: string;
+  features: string;
+  stack: string;
+  screenshotUnpublished: string;
+  live: string;
+  repository: string;
+  unpublished: string;
+};
+
 export const contactLinks: {
   github: PublicLink;
   linkedin: PublicLink;
@@ -228,8 +239,14 @@ export const profile = {
   },
   projects: {
     title: 'Projects',
-    note: 'Selected projects are not published yet.',
-  },
+    overview: 'Overview',
+    features: 'Features',
+    stack: 'Stack',
+    screenshotUnpublished: 'Screenshot not published yet',
+    live: 'Live application',
+    repository: 'GitHub',
+    unpublished: 'Not published yet',
+  } satisfies ProjectCopy,
   contact: {
     title: 'Contact',
   },

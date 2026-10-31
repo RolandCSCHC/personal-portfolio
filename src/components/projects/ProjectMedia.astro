@@ -1,0 +1,22 @@
+---
+interface Props {
+  image: { src: string; alt: string; width: number; height: number } | null;
+  unpublished: string;
+}
+
+const { image, unpublished } = Astro.props;
+---
+
+{image ? (
+  <img
+    class="w-full border border-border"
+    src={image.src}
+    alt={image.alt}
+    width={image.width}
+    height={image.height}
+  />
+) : (
+  <div class="flex aspect-video items-center justify-center border border-border bg-surface p-6 text-center">
+    <p class="text-sm text-muted">{unpublished}</p>
+  </div>
+)}

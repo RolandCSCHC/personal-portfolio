@@ -1,6 +1,9 @@
 ---
 import PublicLink from '../PublicLink.astro';
 import { contactLinkList } from '../../data/profile';
+import { loadProjects } from '../../data/projects';
+
+const projects = await loadProjects();
 ---
 
 <footer class="border-t border-border bg-surface">
@@ -20,28 +23,19 @@ import { contactLinkList } from '../../data/profile';
     </nav>
     <nav aria-label="Applications">
       <ul class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
-        <li>
-          <a
-            class="text-accent underline"
-            href="https://mediashelf.rolandschlosser.dev"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            MediaShelf
-            <span class="sr-only">(opens in a new tab)</span>
-          </a>
-        </li>
-        <li>
-          <a
-            class="text-accent underline"
-            href="https://relovia.rolandschlosser.dev"
-            rel="noopener noreferrer"
-            target="_blank"
-          >
-            Relovia
-            <span class="sr-only">(opens in a new tab)</span>
-          </a>
-        </li>
+        {projects.map((project) => (
+          <li>
+            <a
+              class="text-accent underline"
+              href={project.data.liveUrl}
+              rel="noopener noreferrer"
+              target="_blank"
+            >
+              {project.data.name}
+              <span class="sr-only">(opens in a new tab)</span>
+            </a>
+          </li>
+        ))}
       </ul>
     </nav>
   </div>

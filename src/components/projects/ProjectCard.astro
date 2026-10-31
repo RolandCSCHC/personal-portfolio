@@ -1,0 +1,41 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import type { ProjectCopy } from '../../data/profile';
+import ProjectLinks from './ProjectLinks.astro';
+import ProjectMedia from './ProjectMedia.astro';
+import TechnologyList from './TechnologyList.astro';
+
+interface Props {
+  project: CollectionEntry<'projects'>;
+  labels: ProjectCopy;
+  heading: 'h2' | 'h3';
+}
+
+const { project, labels, heading } = Astro.props;
+const Heading = heading;
+const { name, summary, stack, liveUrl, repositories, image } = project.data;
+---
+
+<article class="flex h-full flex-col border border-border bg-surface p-6">
+  {image && (
+    <div class="mb-6">
+      <ProjectMedia image={image} unpublished={labels.screenshotUnpublished} />
+    </div>
+  )}
+  <Heading>
+    <a class="text-foreground underline" href={`/projects/${project.id}`}>
+      {name}
+    </a>
+  </Heading>
+  <p class="mt-3">{summary}</p>
+  <div class="mt-4">
+    <TechnologyList items={stack} label={labels.stack} />
+  </div>
+  <div class="mt-auto pt-6">
+    <ProjectLinks
+      liveUrl={liveUrl}
+      repositories={repositories}
+      labels={labels}
+    />
+  </div>
+</article>

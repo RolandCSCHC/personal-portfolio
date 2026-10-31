@@ -1,0 +1,47 @@
+---
+import type { ProjectCopy } from '../../data/profile';
+import PublicLink from '../PublicLink.astro';
+
+interface Props {
+  liveUrl: string;
+  repositories: { label: string; url: string }[];
+  labels: ProjectCopy;
+}
+
+const { liveUrl, repositories, labels } = Astro.props;
+---
+
+<ul class="grid gap-2">
+  <li>
+    <PublicLink
+      link={{
+        label: labels.live,
+        href: liveUrl,
+        unpublished: labels.unpublished,
+      }}
+    />
+  </li>
+  {repositories.length > 0 ? (
+    repositories.map((repository) => (
+      <li>
+        <PublicLink
+          link={{
+            label: repository.label,
+            href: repository.url,
+            unpublished: labels.unpublished,
+          }}
+        />
+      </li>
+    ))
+  ) : (
+    <li>
+      <PublicLink
+        link={{
+          label: labels.repository,
+          href: null,
+          unpublished: labels.unpublished,
+        }}
+      />
+    </li>
+  )}
+</ul>
