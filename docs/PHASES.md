@@ -385,7 +385,7 @@ Revised later on 31 October 2026. Roland removed the project cards from the home
 
 ## Phase 5 — Internationalization
 
-**Status:** Not started  
+**Status:** Completed  
 **Depends on:** Phases 3 and 4. The CV page shell is created here and receives its files in Phase 6.
 
 ### Objective
@@ -410,40 +410,40 @@ The current site uses `trailingSlash: 'never'`, so these URLs do not have a trai
 
 #### Translation system
 
-- [ ] Keep English and Spanish copy in separate modules.
-- [ ] Share page components between locales instead of duplicating page implementations.
-- [ ] Use typed translation keys.
-- [ ] Keep navigation labels consistent.
-- [ ] Format dates for the active locale.
+- [x] Keep English and Spanish copy in separate modules.
+- [x] Share page components between locales instead of duplicating page implementations.
+- [x] Use typed translation keys.
+- [x] Keep navigation labels consistent.
+- [x] Format dates for the active locale.
 
 #### Language switcher
 
-- [ ] Offer English and Spanish.
-- [ ] Move the visitor to the equivalent page in the other language.
-- [ ] Fall back to that language’s homepage when an equivalent page does not exist.
-- [ ] Show which language is active.
-- [ ] Operate from the keyboard.
+- [x] Offer English and Spanish.
+- [x] Move the visitor to the equivalent page in the other language.
+- [x] Fall back to that language’s homepage when an equivalent page does not exist.
+- [x] Show which language is active.
+- [x] Operate from the keyboard.
 
 #### Content
 
 Translate:
 
-- [ ] Navigation.
-- [ ] Hero, about, experience, education, skills, and contact.
-- [ ] Project cards and both project detail pages.
-- [ ] Footer.
-- [ ] CV page.
-- [ ] Titles, descriptions, and other metadata.
+- [x] Navigation.
+- [x] Hero, about, experience, education, skills, and contact.
+- [x] Project cards and both project detail pages.
+- [x] Footer.
+- [x] CV page.
+- [x] Titles, descriptions, and other metadata.
 
 Spanish must read as natural Spanish, not as a word-for-word rendering of the English text.
 
 #### Localized metadata
 
-- [ ] Set the document language.
-- [ ] Localize titles and descriptions.
-- [ ] Add `hreflang` links.
-- [ ] Add canonical URLs.
-- [ ] Localize Open Graph metadata.
+- [x] Set the document language.
+- [x] Localize titles and descriptions.
+- [x] Add `hreflang` links.
+- [x] Add canonical URLs.
+- [x] Localize Open Graph metadata.
 
 ### Technical requirements
 
@@ -464,12 +464,14 @@ Do not machine-publish unreviewed Spanish. Do not change the default language. D
 
 ### Acceptance criteria
 
-- [ ] Every public page exists in English and Spanish.
-- [ ] Language switching preserves the current page.
-- [ ] Routes match the table above.
-- [ ] No translation keys are missing.
-- [ ] Metadata is localized.
-- [ ] Language alternatives are exposed for search engines.
+- [x] Every public page exists in English and Spanish.
+- [x] Language switching preserves the current page.
+- [x] Routes match the table above.
+- [x] No translation keys are missing.
+- [x] Metadata is localized.
+- [x] Language alternatives are exposed for search engines.
+
+Verified on 31 October 2026 in light and dark themes, at a desktop width and at 390px. `pnpm check`, `pnpm lint`, `pnpm format:check`, and `pnpm build` passed. The language control keeps the current page, including a project page and the `#contact` fragment. A missing equivalent page falls back to that language’s homepage. Dates use the active locale. The CV pages say the download is not published yet. The header does not link to CV; Phase 6 adds the files.
 
 ---
 

@@ -56,7 +56,7 @@ Principles: timeless presentation, clear typography, generous whitespace, neutra
 | 2     | Design system and global layout           | Phase 1                                        | Completed   |
 | 3     | Homepage and professional profile         | Phase 2                                        | Completed   |
 | 4     | Personal projects showcase                | Phases 2 and 3                                 | Completed   |
-| 5     | Internationalization                      | Phases 3 and 4                                 | Not started |
+| 5     | Internationalization                      | Phases 3 and 4                                 | Completed   |
 | 6     | Personal assets and CV                    | Phases 3 and 5 for the pages that display them | Not started |
 | 7     | SEO, accessibility, and quality assurance | Phases 2–6                                     | Not started |
 | 8     | Production deployment and launch          | Phase 7                                        | Not started |
@@ -69,7 +69,7 @@ Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those
 - [x] Phase 2 — Design system and global layout
 - [x] Phase 3 — Homepage and professional profile
 - [x] Phase 4 — Personal projects showcase
-- [ ] Phase 5 — Internationalization
+- [x] Phase 5 — Internationalization
 - [ ] Phase 6 — Personal assets and CV
 - [ ] Phase 7 — SEO, accessibility, and quality assurance
 - [ ] Phase 8 — Production deployment and launch
@@ -94,7 +94,7 @@ Completed on 31 October 2026. MediaShelf and Relovia are stored in one Astro con
 
 ### Phase 5 — Internationalization
 
-Add Spanish pages for every public route, a language switcher that keeps the current page, and localized metadata. Spanish copy must read as natural Spanish.
+Completed on 31 October 2026. Every public page exists in English and Spanish. Shared page components read typed copy, dates follow the active locale, and the language control keeps the current page. Canonical URLs, `hreflang`, and Open Graph metadata use `https://rolandschlosser.dev`. The CV pages are shells until the files arrive in Phase 6.
 
 ### Phase 6 — Personal assets and CV
 

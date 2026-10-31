@@ -174,6 +174,18 @@ Decision: Force-push local `f086e69` to `origin/main` once, replacing `9400b78`,
 Reason: Approved by Roland as a single exception to the no-force-push rule.
 Phase: 1
 
+### 2026-10-31 — Spanish site
+
+Decision: Publish the Spanish pages in Phase 5 from typed translations of the supplied English copy. Format month-year dates with `Intl` for the active locale. Use `https://rolandschlosser.dev` as the canonical origin. Use Open Graph locales `en_US` and `es_CL`. Call the teaching role “Ayudante” in Spanish and the degree “Ingeniero Civil en Computación”. Leave both CV pages as unpublished shells.
+Reason: Phase 5. The production origin was already approved. The Spanish CV file is not on the site yet.
+Phase: 5
+
+### 2026-10-31 — Spanish degree name
+
+Decision: The Spanish degree is “Ingeniero Civil en Ciencias de la Computación”.
+Reason: Roland corrected the Phase 5 translation.
+Phase: 5
+
 ## Future entries
 
 Add the next decision in this format:
