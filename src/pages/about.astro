@@ -1,0 +1,21 @@
+---
+import About from '../components/sections/About.astro';
+import Education from '../components/sections/Education.astro';
+import { profile } from '../data/profile';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title={`${profile.about.title} — Roland Schlösser`}
+  description={profile.about.paragraphs[0]}
+>
+  <About
+    title={profile.about.title}
+    paragraphs={profile.about.paragraphs}
+    page
+  />
+  <Education
+    title={profile.education.title}
+    entries={profile.education.entries}
+  />
+</BaseLayout>

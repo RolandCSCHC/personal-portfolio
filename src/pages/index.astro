@@ -1,18 +1,22 @@
 ---
+import Contact from '../components/sections/Contact.astro';
+import Hero from '../components/sections/Hero.astro';
+import { contactLinkList, contactLinks, profile } from '../data/profile';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout
-  title="Roland Schlösser"
-  description="Personal portfolio of Roland Schlösser. Website under development."
->
-  <div class="page-container flex flex-1 items-center py-16 md:py-24">
-    <div class="reading-measure">
-      <h1>Roland Schlösser</h1>
-      <p class="mt-3 text-lg text-muted">Personal Portfolio</p>
-      <p class="mt-6 font-mono text-sm text-muted">
-        Website under development.
-      </p>
-    </div>
-  </div>
+<BaseLayout title={profile.meta.title} description={profile.meta.description}>
+  <Hero
+    title={profile.hero.title}
+    introduction={profile.hero.introduction}
+    description={profile.hero.description}
+    photograph={profile.hero.photograph}
+    projectsHref={profile.hero.projectsHref}
+    projectsLabel={profile.hero.projectsLabel}
+    contactHref={profile.hero.contactHref}
+    contactLabel={profile.hero.contactLabel}
+    github={contactLinks.github}
+    linkedin={contactLinks.linkedin}
+  />
+  <Contact title={profile.contact.title} links={contactLinkList} />
 </BaseLayout>

@@ -1,0 +1,18 @@
+---
+import Experience from '../components/sections/Experience.astro';
+import Skills from '../components/sections/Skills.astro';
+import { profile } from '../data/profile';
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title={`${profile.experience.title} — Roland Schlösser`}
+  description="Teacher Assistant at Universidad de los Andes and Software Engineer at ShareMaq Tech."
+>
+  <Experience
+    title={profile.experience.title}
+    roles={profile.experience.roles}
+    page
+  />
+  <Skills title={profile.skills.title} groups={profile.skills.groups} />
+</BaseLayout>

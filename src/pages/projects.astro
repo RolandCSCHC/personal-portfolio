@@ -1,0 +1,18 @@
+---
+import { profile } from '../data/profile';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const { projects } = profile;
+---
+
+<BaseLayout
+  title={`${projects.title} — Roland Schlösser`}
+  description={projects.note}
+>
+  <div class="page-container py-16 md:py-24">
+    <div class="reading-measure">
+      <h1>{projects.title}</h1>
+      <p class="mt-6 text-muted">{projects.note}</p>
+    </div>
+  </div>
+</BaseLayout>
