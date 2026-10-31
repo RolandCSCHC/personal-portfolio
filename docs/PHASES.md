@@ -80,7 +80,7 @@ Verified on 31 October 2026. The placeholder homepage was checked in a desktop v
 
 ## Phase 2 — Design system and global layout
 
-**Status:** Not started  
+**Status:** Completed  
 **Depends on:** Phase 1
 
 ### Objective
@@ -91,10 +91,10 @@ Establish the visual foundation before implementing page content.
 
 #### Color
 
-- [ ] Add semantic CSS variables for background, surface, primary text, secondary text, accent, and border.
-- [ ] Define the light and dark values below, unless revised before implementation.
-- [ ] Use those variables from shared styles and components.
-- [ ] Check text contrast for both themes.
+- [x] Add semantic CSS variables for background, surface, primary text, secondary text, accent, and border.
+- [x] Define the light and dark values below, unless revised before implementation.
+- [x] Use those variables from shared styles and components.
+- [x] Check text contrast for both themes.
 
 Proposed light palette:
 
@@ -120,44 +120,44 @@ Proposed dark palette:
 
 #### Typography
 
-- [ ] Choose and load a professional sans-serif for headings and body text. Inter is the current suggestion.
-- [ ] Choose and load a monospace face for occasional technical labels. JetBrains Mono is the current suggestion.
-- [ ] Host the font files locally and respect their licenses.
-- [ ] Define a heading scale, body size, weights, line height, and a comfortable measure.
-- [ ] Make the type scale readable on mobile and desktop.
+- [x] Choose and load a professional sans-serif for headings and body text. Inter is the current suggestion.
+- [x] Choose and load a monospace face for occasional technical labels. JetBrains Mono is the current suggestion.
+- [x] Host the font files locally and respect their licenses.
+- [x] Define a heading scale, body size, weights, line height, and a comfortable measure.
+- [x] Make the type scale readable on mobile and desktop.
 
 #### Layout
 
-- [ ] Extend the document layout with header, main, and footer.
-- [ ] Add a content container with a maximum width of about 1120px.
-- [ ] Add a reading measure of about 720px for prose.
-- [ ] Define a consistent spacing scale.
-- [ ] Keep the page structure semantic.
+- [x] Extend the document layout with header, main, and footer.
+- [x] Add a content container with a maximum width of about 1120px.
+- [x] Add a reading measure of about 720px for prose.
+- [x] Define a consistent spacing scale.
+- [x] Keep the page structure semantic.
 
 #### Header
 
-- [ ] Show the name or wordmark.
-- [ ] Link to Home, Projects, and About or Experience.
-- [ ] Include the language switcher and theme switcher.
-- [ ] Use a horizontal navigation on desktop.
-- [ ] Use a compact navigation on small screens, with no animated menu transition.
-- [ ] Keep every control usable from the keyboard.
+- [x] Show the name or wordmark.
+- [x] Link to Home, Projects, About, and Experience.
+- [x] Include the language switcher and theme switcher.
+- [x] Use a horizontal navigation on desktop.
+- [x] Use a compact navigation on small screens, with no animated menu transition.
+- [x] Keep every control usable from the keyboard.
 
-The visible label “About” or “Experience” is not decided. Confirm it before building the header.
+The header includes both About and Experience, as approved on 31 October 2026.
 
 #### Theme switching
 
-- [ ] Support light, dark, and the system preference.
-- [ ] Let the visitor override the theme.
-- [ ] Persist the choice in `localStorage`.
-- [ ] Apply the saved or system theme before first paint so the wrong theme does not flash.
-- [ ] Keep the client script limited to that behavior.
+- [x] Support light, dark, and the system preference.
+- [x] Let the visitor override the theme.
+- [x] Persist the choice in `localStorage`.
+- [x] Apply the saved or system theme before first paint so the wrong theme does not flash.
+- [x] Keep the client script limited to that behavior.
 
 #### Footer
 
-- [ ] Show the name and copyright.
-- [ ] Link to GitHub, LinkedIn, and email once those URLs are supplied.
-- [ ] Link to MediaShelf and Relovia.
+- [x] Show the name and copyright.
+- [x] Link to GitHub, LinkedIn, and email once those URLs are supplied.
+- [x] Link to MediaShelf and Relovia.
 
 ### Technical requirements
 
@@ -179,12 +179,14 @@ Do not write the real homepage sections, project pages, translations, or CV down
 
 ### Acceptance criteria
 
-- [ ] Light and dark themes both render correctly.
-- [ ] The selected theme persists across reloads.
-- [ ] The header and footer work on mobile, tablet, and desktop.
-- [ ] Keyboard navigation works.
-- [ ] No animations are present.
-- [ ] Shared colors, type, and spacing are centralized.
+- [x] Light and dark themes both render correctly.
+- [x] The selected theme persists across reloads.
+- [x] The header and footer work on mobile, tablet, and desktop.
+- [x] Keyboard navigation works.
+- [x] No animations are present.
+- [x] Shared colors, type, and spacing are centralized.
+
+Verified on 31 October 2026. Text contrast for the approved palette meets WCAG 2.2 AA. GitHub, LinkedIn, and email are shown as text until their URLs are supplied. Español is visible and inactive. `/projects` is linked and will exist in Phase 4.
 
 ---
 

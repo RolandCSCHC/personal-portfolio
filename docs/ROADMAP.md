@@ -53,7 +53,7 @@ Principles: timeless presentation, clear typography, generous whitespace, neutra
 | Phase | Name                                      | Depends on                                     | Status      |
 | ----- | ----------------------------------------- | ---------------------------------------------- | ----------- |
 | 1     | Repository and project foundation         | —                                              | Completed   |
-| 2     | Design system and global layout           | Phase 1                                        | Not started |
+| 2     | Design system and global layout           | Phase 1                                        | Completed   |
 | 3     | Homepage and professional profile         | Phase 2                                        | Not started |
 | 4     | Personal projects showcase                | Phases 2 and 3                                 | Not started |
 | 5     | Internationalization                      | Phases 3 and 4                                 | Not started |
@@ -66,7 +66,7 @@ Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those
 ## Progress
 
 - [x] Phase 1 — Repository and project foundation
-- [ ] Phase 2 — Design system and global layout
+- [x] Phase 2 — Design system and global layout
 - [ ] Phase 3 — Homepage and professional profile
 - [ ] Phase 4 — Personal projects showcase
 - [ ] Phase 5 — Internationalization
@@ -82,7 +82,7 @@ Completed on 31 October 2026. The Astro project, Tailwind CSS 4, TypeScript stri
 
 ### Phase 2 — Design system and global layout
 
-Define semantic color variables, typography, spacing, the shared layout, header, footer, and light/dark theme switching before writing the real page content.
+Completed on 31 October 2026. Semantic colors, locally hosted Inter and JetBrains Mono, the shared header and footer, and light, dark, and system theme switching are in place. The homepage is still a placeholder.
 
 ### Phase 3 — Homepage and professional profile
 

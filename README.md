@@ -97,14 +97,19 @@ personal-portfolio/
 ├── public/
 │   ├── favicon.svg
 │   └── robots.txt
+├── docs/
 ├── src/
+│   ├── components/layout/
 │   ├── i18n/
 │   │   └── locales.ts
 │   ├── layouts/
 │   │   └── BaseLayout.astro
 │   ├── pages/
 │   │   └── index.astro
+│   ├── scripts/
+│   │   └── theme.ts
 │   └── styles/
+│       ├── fonts.css
 │       └── global.css
 ├── .editorconfig
 ├── .gitignore
@@ -126,7 +131,7 @@ Directories below are part of the intended layout and are created when they firs
 - `public/images/profile/` for the professional photograph
 - `public/images/projects/` for project images
 - `public/cv/` for the downloadable CV
-- `src/components/layout/`, `src/components/sections/`, and `src/components/projects/` for interface components
+- `src/components/sections/` and `src/components/projects/` for later interface components
 - `src/content/projects/` for project content
 - `src/data/` for structured site data
 - `src/pages/es/` for Spanish pages
@@ -143,6 +148,6 @@ English is the default language and has no URL prefix. Spanish uses the `/es` pr
 | Relovia    | `/projects/relovia`    | `/es/projects/relovia`    |
 | CV         | `/cv`                  | `/es/cv`                  |
 
-English pages live in `src/pages/`. Spanish pages will live in `src/pages/es/`. Shared markup belongs in layouts and components so each locale file stays thin. Locale codes are defined in `astro.config.mjs` and `src/i18n/locales.ts` and must stay aligned. Translations and the language switcher are not implemented yet.
+English pages live in `src/pages/`. Spanish pages will live in `src/pages/es/`. Shared markup belongs in layouts and components so each locale file stays thin. Locale codes are defined in `astro.config.mjs` and `src/i18n/locales.ts` and must stay aligned. The header reserves a language control. Español stays inactive until the translations exist.
 
-The current homepage is a placeholder used to verify the foundation.
+The current homepage is a placeholder inside the shared header and footer. The implementation roadmap is in `docs/ROADMAP.md`.

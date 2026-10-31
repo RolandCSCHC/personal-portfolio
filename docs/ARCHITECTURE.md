@@ -1,6 +1,6 @@
 # Architecture
 
-This document separates what Phase 1 already implemented from the architecture planned for later phases. Planned items are not in the application yet.
+This document separates what is already implemented from the architecture planned for later phases.
 
 ## Implemented
 
@@ -25,10 +25,12 @@ TypeScript 7 is not used because `@astrojs/check` accepts TypeScript 5 or 6. `@l
 
 ```text
 src/
+├── components/layout/   Header, footer, language control, theme control
 ├── i18n/locales.ts
 ├── layouts/BaseLayout.astro
 ├── pages/index.astro
-└── styles/global.css
+├── scripts/theme.ts
+└── styles/              global.css and fonts.css
 public/
 ├── favicon.svg
 └── robots.txt
@@ -36,7 +38,9 @@ public/
 
 `src/i18n/locales.ts` exports `en` and `es`, with `en` as the default. The same codes are set in `astro.config.mjs`. English routes have no prefix. Spanish files, when added, belong in `src/pages/es/`.
 
-`BaseLayout.astro` renders the document shell, imports the global stylesheet, and sets `lang` from `Astro.currentLocale`. The stylesheet only imports Tailwind. The homepage is a placeholder. Colors on that page are default Tailwind utilities, not the semantic theme planned for Phase 2.
+`BaseLayout.astro` renders the document shell, header, main content, and footer. It sets `lang` from `Astro.currentLocale` and applies the saved theme before paint. The homepage is still a placeholder inside that shell.
+
+`src/styles/global.css` defines the approved light and dark palettes as semantic variables. Tailwind utilities reference those variables. Inter and JetBrains Mono are self-hosted from their Latin variable files. The content column is 70rem (1120px). Prose is limited to 45rem (720px). Below 64rem the header stacks; from 64rem upward it is a horizontal row.
 
 `trailingSlash` is `never`. Public URLs are `/`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash.
 
@@ -102,7 +106,7 @@ Canonical URLs and `hreflang` are added in Phase 5 and completed in Phase 7. Ast
 
 ### Themes
 
-Phase 2 introduces semantic variables in `src/styles/global.css` for background, surface, primary text, secondary text, accent, and border. Light values live on the document root. Dark values live under a `data-theme="dark"` selector. Tailwind utilities reference those variables so components do not hardcode palette colors.
+Implemented in Phase 2. Semantic variables in `src/styles/global.css` cover background, surface, primary text, secondary text, accent, and border. Light values live on the document root. Dark values live under `data-theme="dark"`. An explicit light choice overrides a dark system preference. Tailwind utilities reference those variables.
 
 Theme selection:
 
@@ -122,7 +126,7 @@ That script is the client-side JavaScript required to prevent a theme flash. Oth
 | Section components              | One homepage region each                                      |
 | Project card and project detail | Presentation only; data comes from the content source         |
 
-The header label for the professional-background link is undecided between “About” and “Experience”.
+The header links to Home, Projects, About, and Experience. The language control shows English as current and leaves Español inactive until Phase 5. GitHub, LinkedIn, and email are visible in the footer and are not links until their URLs are supplied.
 
 ### Hosting
 
