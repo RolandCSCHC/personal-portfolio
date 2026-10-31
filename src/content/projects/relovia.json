@@ -1,0 +1,30 @@
+{
+  "name": "Relovia",
+  "summary": "A relocation planning application for organizing domestic and international relocations, documents, tasks, expenses, and moving logistics.",
+  "features": [
+    "Organizing domestic and international relocations",
+    "Organizing documents",
+    "Organizing tasks",
+    "Organizing expenses",
+    "Organizing moving logistics"
+  ],
+  "stack": ["Angular", "TypeScript", "C#", "ASP.NET Core", "PostgreSQL"],
+  "liveUrl": "https://relovia.rolandschlosser.dev",
+  "repositories": [
+    {
+      "label": "GitHub backend",
+      "url": "https://github.com/RolandCSCHC/relovia-api"
+    },
+    {
+      "label": "GitHub frontend",
+      "url": "https://github.com/RolandCSCHC/relovia-web"
+    }
+  ],
+  "image": {
+    "src": "/images/projects/relovia.jpg",
+    "alt": "Relovia relocation from Santiago, Chile to New Zealand, open on the Tasks tab.",
+    "width": 1600,
+    "height": 823
+  },
+  "order": 2
+}
