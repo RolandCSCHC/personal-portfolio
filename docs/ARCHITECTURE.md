@@ -25,10 +25,18 @@ TypeScript 7 is not used because `@astrojs/check` accepts TypeScript 5 or 6. `@l
 
 ```text
 src/
-├── components/layout/   Header, footer, language control, theme control
+├── components/
+│   ├── layout/          Header, footer, language control, theme control
+│   ├── sections/        Homepage sections
+│   └── PublicLink.astro
+├── data/profile.ts      English profile facts and contact links
 ├── i18n/locales.ts
 ├── layouts/BaseLayout.astro
-├── pages/index.astro
+├── pages/
+│   ├── index.astro      Introduction and contact
+│   ├── about.astro
+│   ├── experience.astro
+│   └── projects.astro   Placeholder until Phase 4
 ├── scripts/theme.ts
 └── styles/              global.css and fonts.css
 public/
@@ -38,11 +46,11 @@ public/
 
 `src/i18n/locales.ts` exports `en` and `es`, with `en` as the default. The same codes are set in `astro.config.mjs`. English routes have no prefix. Spanish files, when added, belong in `src/pages/es/`.
 
-`BaseLayout.astro` renders the document shell, header, main content, and footer. It sets `lang` from `Astro.currentLocale` and applies the saved theme before paint. The homepage is still a placeholder inside that shell.
+`BaseLayout.astro` renders the document shell, header, main content, and footer. It sets `lang` from `Astro.currentLocale` and applies the saved theme before paint. The English homepage is composed of section components. Copy and unpublished fields live in `src/data/profile.ts`, and the page passes that copy into the sections so a later Spanish page can reuse them. GitHub, LinkedIn, and email render through `PublicLink`. A null `href` shows the label and “Not published yet” instead of a link.
 
 `src/styles/global.css` defines the approved light and dark palettes as semantic variables. Tailwind utilities reference those variables. Inter and JetBrains Mono are self-hosted from their Latin variable files. The content column is 70rem (1120px). Prose is limited to 45rem (720px). Below 64rem the header stacks; from 64rem upward it is a horizontal row.
 
-`trailingSlash` is `never`. Public URLs are `/`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash.
+`trailingSlash` is `never`. Public URLs are `/`, `/about`, `/experience`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash.
 
 `robots.txt` allows all crawlers. It is not yet a launch configuration. The favicon is a temporary monogram, not the final identity mark.
 
@@ -126,7 +134,7 @@ That script is the client-side JavaScript required to prevent a theme flash. Oth
 | Section components              | One homepage region each                                      |
 | Project card and project detail | Presentation only; data comes from the content source         |
 
-The header links to Home, Projects, About, and Experience. Language and theme are dropdowns. The language dropdown shows English as current and leaves Español inactive until Phase 5. The theme dropdown offers light, dark, and system. GitHub, LinkedIn, and email are visible in the footer and are not links until their URLs are supplied.
+The header links to Home, Projects, About, and Experience. Language and theme are dropdowns. The language dropdown shows English as current and leaves Español inactive until Phase 5. The theme dropdown offers light, dark, and system. GitHub, LinkedIn, and email are links in the footer, the hero, and the contact section. The hero links to `/projects` and `#contact`. `/projects` currently says that selected projects are not published yet. Phase 4 replaces that page with MediaShelf and Relovia.
 
 ### Hosting
 

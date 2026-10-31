@@ -75,16 +75,11 @@ No proposals are waiting. New proposals go here until they are accepted.
 
 Do not publish these until Roland provides them.
 
-- Email address.
-- LinkedIn profile URL.
-- Public GitHub profile URL. The repository owner is `RolandCSCHC`; the profile link still needs confirmation.
 - MediaShelf repository URL.
 - Relovia repository URL.
-- University name and teaching dates.
-- Institution, degree, and dates for education.
 - Professional photograph.
 - Project screenshots.
-- English CV PDF and Spanish CV PDF.
+- Downloadable English and Spanish CV files. Roland supplied the English CV on 31 October 2026 as the source for teaching and education. The file is not on the site yet.
 
 ## Open Git state
 
@@ -145,6 +140,18 @@ Phase: 4
 Decision: Redirect `www.rolandschlosser.dev` to `https://rolandschlosser.dev`.
 Reason: Approved by Roland.
 Phase: 8
+
+### 2026-10-31 — Contact, teaching, and education
+
+Decision: Publish `rcschlosser@miuandes.cl`, `https://www.linkedin.com/in/rolandschlosser/`, and `https://github.com/RolandCSCHC`. Teaching and education use the English CV Roland supplied on this date.
+Reason: Roland provided the addresses and the CV.
+Phase: 3
+
+### 2026-10-31 — Separate menu pages
+
+Decision: Home, Projects, About, and Experience are separate pages. Home is the introduction and contact. About includes education. Experience includes skills.
+Reason: Roland asked for each menu item to open its own page.
+Phase: 3
 
 ### 2026-10-31 — Git history
 

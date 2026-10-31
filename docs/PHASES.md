@@ -192,7 +192,7 @@ Verified on 31 October 2026. Text contrast for the approved palette meets WCAG 2
 
 ## Phase 3 — Homepage and professional profile
 
-**Status:** Not started  
+**Status:** Completed  
 **Depends on:** Phase 2
 
 ### Objective
@@ -203,60 +203,60 @@ Publish the homepage as one page with separate sections that introduce Roland Sc
 
 #### Hero
 
-- [ ] Use this introduction: “Hi, I'm Roland Schlösser.”
-- [ ] Use this description: “Software Engineer who builds practical, scalable software, loves teaching programming, and enjoys turning complex problems into simple solutions.”
-- [ ] Show the professional title Software Engineer.
-- [ ] Reserve the photograph area. Use a labeled placeholder until the real photograph is provided. Do not generate a portrait.
-- [ ] Link to the projects section, a contact action, GitHub, and LinkedIn.
+- [x] Use this introduction: “Hi, I'm Roland Schlösser.”
+- [x] Use this description: “Software Engineer who builds practical, scalable software, loves teaching programming, and enjoys turning complex problems into simple solutions.”
+- [x] Show the professional title Software Engineer.
+- [x] Reserve the photograph area. Use a labeled placeholder until the real photograph is provided. Do not generate a portrait.
+- [x] Link to the projects section, a contact action, GitHub, and LinkedIn.
 
 #### About
 
 Write a concise account of:
 
-- [ ] Software engineering background.
-- [ ] Full-stack development.
-- [ ] Interest in software architecture.
-- [ ] Interest in cloud technologies.
-- [ ] Teaching and mentoring.
-- [ ] Interest in building useful software products.
+- [x] Software engineering background.
+- [x] Full-stack development.
+- [x] Interest in software architecture.
+- [x] Interest in cloud technologies.
+- [x] Teaching and mentoring.
+- [x] Interest in building useful software products.
 
 #### Experience
 
 Present the roles in chronological order.
 
-- [ ] ShareMaq Tech, Software Engineer.
+- [x] ShareMaq Tech, Software Engineer.
   - Part-time: December 2024 – July 2026.
   - Full-time: August 2026 – Present.
   - Full-stack development, software architecture, code reviews, production deployments, and cloud infrastructure.
-- [ ] University teaching assistant.
+- [x] University teaching assistant.
   - Subjects: Programming, Object-Oriented Programming, Data Structures and Algorithms, Web Technologies, Software Design, and Applied Algorithmic Thinking.
   - Responsibilities: teaching, student mentoring, and course coordination support.
   - Do not invent the institution name, dates, or achievements. Ask for them, or mark those fields as missing.
 
 #### Education
 
-- [ ] Add an education section.
-- [ ] Use labeled placeholders for any missing institution, degree, or dates.
-- [ ] Do not invent academic history.
+- [x] Add an education section.
+- [x] Use labeled placeholders for any missing institution, degree, or dates.
+- [x] Do not invent academic history.
 
 #### Skills
 
 Group only skills that match the supplied experience:
 
-- [ ] Languages: Python, TypeScript, JavaScript, C#.
-- [ ] Backend: Django, NestJS, ASP.NET Core.
-- [ ] Frontend: Vue.js, Angular, Next.js.
-- [ ] Databases: PostgreSQL, MySQL.
-- [ ] Cloud and DevOps: AWS, Docker, CI/CD.
-- [ ] Other: Git, REST APIs, software architecture, testing, object-oriented programming.
+- [x] Languages: Python, TypeScript, JavaScript, C#.
+- [x] Backend: Django, NestJS, ASP.NET Core.
+- [x] Frontend: Vue.js, Angular, Next.js.
+- [x] Databases: PostgreSQL, MySQL.
+- [x] Cloud and DevOps: AWS, Docker, CI/CD.
+- [x] Other: Git, REST APIs, software architecture, testing, object-oriented programming.
 
 MySQL and testing are included by Roland’s decision on 31 October 2026.
 
 #### Contact
 
-- [ ] Link to email, LinkedIn, and GitHub.
-- [ ] Ask for the email address and profile URLs before publication.
-- [ ] Do not build a contact form.
+- [x] Link to email, LinkedIn, and GitHub.
+- [x] Ask for the email address and profile URLs before publication.
+- [x] Do not build a contact form.
 
 ### Technical requirements
 
@@ -276,13 +276,15 @@ Do not add project detail pages, translations, generated portraits, or a backend
 
 ### Acceptance criteria
 
-- [ ] Every section renders correctly.
-- [ ] The layout works on mobile and desktop.
-- [ ] Navigation links work.
-- [ ] Contact links work, or missing URLs are visibly marked as unpublished.
-- [ ] The professional facts match the supplied background.
-- [ ] No fabricated content is presented as fact.
-- [ ] The visual hierarchy matches the design system.
+- [x] Every section renders correctly.
+- [x] The layout works on mobile and desktop.
+- [x] Navigation links work.
+- [x] Contact links work, or missing URLs are visibly marked as unpublished.
+- [x] The professional facts match the supplied background.
+- [x] No fabricated content is presented as fact.
+- [x] The visual hierarchy matches the design system.
+
+Verified on 31 October 2026 in light and dark themes, at a desktop width and at 390px. Later the same day, Roland supplied the email, LinkedIn, and GitHub URLs, and the English CV. Teaching is Universidad de los Andes, March 2014 – July 2026, placed before ShareMaq by start date. Education lists Civil Engineer in Computer Science (2026) and Colegio Alemán de Santiago (2009). Home, About, Experience, and Projects are separate pages. About includes education. Experience includes skills. `/projects` says that selected projects are not published yet. Phase 4 replaces that page with MediaShelf and Relovia.
 
 ---
 
@@ -391,6 +393,8 @@ Publish a complete English site and a complete Spanish site. English stays the d
 | Page       | English                | Spanish                   |
 | ---------- | ---------------------- | ------------------------- |
 | Home       | `/`                    | `/es`                     |
+| About      | `/about`               | `/es/about`               |
+| Experience | `/experience`          | `/es/experience`          |
 | Projects   | `/projects`            | `/es/projects`            |
 | MediaShelf | `/projects/mediashelf` | `/es/projects/mediashelf` |
 | Relovia    | `/projects/relovia`    | `/es/projects/relovia`    |

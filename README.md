@@ -2,7 +2,7 @@
 
 Personal portfolio website for Roland Schlösser, a software engineer. The site will present professional experience, technical skills, education, and personal projects, and give recruiters a direct way to get in touch.
 
-This repository currently contains the project foundation: the static site toolchain, language routing, and quality checks. The portfolio content and visual design come in later phases.
+The English homepage presents Roland’s professional profile. Spanish pages, project write-ups, the photograph, and the CV come in later phases.
 
 **Website:** [rolandschlosser.dev](https://rolandschlosser.dev)
 
@@ -99,13 +99,21 @@ personal-portfolio/
 │   └── robots.txt
 ├── docs/
 ├── src/
-│   ├── components/layout/
+│   ├── components/
+│   │   ├── layout/
+│   │   ├── sections/
+│   │   └── PublicLink.astro
+│   ├── data/
+│   │   └── profile.ts
 │   ├── i18n/
 │   │   └── locales.ts
 │   ├── layouts/
 │   │   └── BaseLayout.astro
 │   ├── pages/
-│   │   └── index.astro
+│   │   ├── index.astro
+│   │   ├── about.astro
+│   │   ├── experience.astro
+│   │   └── projects.astro
 │   ├── scripts/
 │   │   └── theme.ts
 │   └── styles/
@@ -143,6 +151,8 @@ English is the default language and has no URL prefix. Spanish uses the `/es` pr
 | Page       | English                | Spanish                   |
 | ---------- | ---------------------- | ------------------------- |
 | Home       | `/`                    | `/es`                     |
+| About      | `/about`               | `/es/about`               |
+| Experience | `/experience`          | `/es/experience`          |
 | Projects   | `/projects`            | `/es/projects`            |
 | MediaShelf | `/projects/mediashelf` | `/es/projects/mediashelf` |
 | Relovia    | `/projects/relovia`    | `/es/projects/relovia`    |
@@ -150,4 +160,4 @@ English is the default language and has no URL prefix. Spanish uses the `/es` pr
 
 English pages live in `src/pages/`. Spanish pages will live in `src/pages/es/`. Shared markup belongs in layouts and components so each locale file stays thin. Locale codes are defined in `astro.config.mjs` and `src/i18n/locales.ts` and must stay aligned. The header reserves a language control. Español stays inactive until the translations exist.
 
-The current homepage is a placeholder inside the shared header and footer. The implementation roadmap is in `docs/ROADMAP.md`.
+Home is the introduction and contact. About includes education, and Experience includes skills. `/projects` currently says that selected projects are not published yet. The implementation roadmap is in `docs/ROADMAP.md`.
