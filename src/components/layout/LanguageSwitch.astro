@@ -1,14 +1,33 @@
-<div
-  class="flex flex-wrap items-center gap-x-3 gap-y-2"
-  role="group"
-  aria-label="Language"
->
-  <span class="font-mono text-xs tracking-wide text-muted">Language</span>
-  <span lang="en" aria-current="true" class="font-semibold text-foreground">
-    English
+<div class="inline-flex items-center gap-2">
+  <span id="language-label" class="font-mono text-xs tracking-wide text-muted">
+    Language
   </span>
-  <button type="button" lang="es" class="text-muted" disabled>
-    Español
-    <span class="sr-only">, not available yet</span>
-  </button>
+  <span class="relative inline-flex">
+    <select
+      class="appearance-none rounded-sm border border-border bg-surface py-1 pr-7 pl-2 text-sm text-foreground"
+      aria-labelledby="language-label"
+      autocomplete="off"
+    >
+      <option value="en" lang="en" selected>
+        English
+      </option>
+      <option value="es" lang="es" disabled>
+        Español
+      </option>
+    </select>
+    <svg
+      class="pointer-events-none absolute top-1/2 right-2 size-3 -translate-y-1/2 text-muted"
+      viewBox="0 0 12 12"
+      aria-hidden="true"
+    >
+      <path
+        d="M2.5 4.5 6 8l3.5-3.5"
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="1.5"
+      ></path>
+    </svg>
+  </span>
 </div>

@@ -126,7 +126,7 @@ That script is the client-side JavaScript required to prevent a theme flash. Oth
 | Section components              | One homepage region each                                      |
 | Project card and project detail | Presentation only; data comes from the content source         |
 
-The header links to Home, Projects, About, and Experience. The language control shows English as current and leaves Español inactive until Phase 5. GitHub, LinkedIn, and email are visible in the footer and are not links until their URLs are supplied.
+The header links to Home, Projects, About, and Experience. Language and theme are dropdowns. The language dropdown shows English as current and leaves Español inactive until Phase 5. The theme dropdown offers light, dark, and system. GitHub, LinkedIn, and email are visible in the footer and are not links until their URLs are supplied.
 
 ### Hosting
 

@@ -27,35 +27,26 @@ export function applyTheme(choice: ThemeChoice): void {
   root.dataset.themeChoice = choice;
 }
 
-export function initThemeControls(form: HTMLFormElement): void {
+export function initThemeControls(select: HTMLSelectElement): void {
   const fromDocument = document.documentElement.dataset.themeChoice ?? null;
   const choice = isThemeChoice(fromDocument)
     ? fromDocument
     : readStoredChoice();
-  const input = form.querySelector<HTMLInputElement>(
-    `input[name="theme"][value="${choice}"]`,
-  );
 
-  if (input) {
-    input.checked = true;
-  }
+  select.value = choice;
 
-  form.addEventListener('change', () => {
-    const selected = form.querySelector<HTMLInputElement>(
-      'input[name="theme"]:checked',
-    );
-
-    if (!selected || !isThemeChoice(selected.value)) {
+  select.addEventListener('change', () => {
+    if (!isThemeChoice(select.value)) {
       return;
     }
 
     try {
-      localStorage.setItem(storageKey, selected.value);
+      localStorage.setItem(storageKey, select.value);
     } catch {
       // Private browsing can block storage. The choice still applies for this view.
     }
 
-    applyTheme(selected.value);
+    applyTheme(select.value);
   });
 
   window
