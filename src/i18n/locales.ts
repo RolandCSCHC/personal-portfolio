@@ -1,0 +1,6 @@
+/** Keep aligned with `i18n.locales` in `astro.config.mjs`. */
+export const locales = ['en', 'es'] as const;
+
+export type Locale = (typeof locales)[number];
+
+export const defaultLocale = 'en' satisfies Locale;

@@ -1,0 +1,27 @@
+---
+import '../styles/global.css';
+import { defaultLocale } from '../i18n/locales';
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+const locale = Astro.currentLocale ?? defaultLocale;
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class="bg-white text-neutral-900 antialiased">
+    <slot />
+  </body>
+</html>
