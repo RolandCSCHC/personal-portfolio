@@ -1,0 +1,118 @@
+# Roland Schlösser — Personal Portfolio
+
+Implementation roadmap for [rolandschlosser.dev](https://rolandschlosser.dev).
+
+Repository: [RolandCSCHC/personal-portfolio](https://github.com/RolandCSCHC/personal-portfolio)
+
+This document is the progress checklist. Detailed tasks and acceptance criteria are in [PHASES.md](PHASES.md). Architecture is in [ARCHITECTURE.md](ARCHITECTURE.md). Confirmed and open decisions are in [DECISIONS.md](DECISIONS.md).
+
+Mark a phase complete only after its acceptance criteria pass and the work has been approved. Do not start the next phase automatically.
+
+## Objectives
+
+- Present Roland Schlösser as a software engineer.
+- Show professional experience, education, technical skills, and selected projects.
+- Link to [MediaShelf](https://mediashelf.rolandschlosser.dev) and [Relovia](https://relovia.rolandschlosser.dev).
+- Make contact straightforward for recruiters and employers.
+- Publish the site in English and Spanish, with English as the default.
+- Offer a downloadable CV in each language.
+
+## Technology stack
+
+| Area            | Choice                                  |
+| --------------- | --------------------------------------- |
+| Framework       | Astro                                   |
+| Language        | TypeScript, strict mode                 |
+| Styling         | Tailwind CSS 4 with `@tailwindcss/vite` |
+| Package manager | pnpm                                    |
+| Runtime         | Node.js 24                              |
+| Hosting         | Vercel                                  |
+| DNS             | Cloudflare                              |
+| Repository      | GitHub, public, `main`                  |
+
+The site is static. It has no backend, database, authentication, or contact form.
+
+## Design decisions
+
+| Property         | Decision                                                                     |
+| ---------------- | ---------------------------------------------------------------------------- |
+| Visual style     | Minimal and professional                                                     |
+| Themes           | Light and dark                                                               |
+| Identity         | Professional photograph, supplied by Roland                                  |
+| Languages        | English and Spanish                                                          |
+| Default language | English                                                                      |
+| Spanish URLs     | `/es` prefix, no prefix for English                                          |
+| Animations       | None                                                                         |
+| CV               | Downloadable PDF in each language                                            |
+| Layout           | Responsive, about 1120px maximum content width and about 720px reading width |
+
+Principles: timeless presentation, clear typography, generous whitespace, neutral colors, one restrained accent, subtle borders, accessible components, and the same structure in both themes and both languages.
+
+## Phases
+
+| Phase | Name                                      | Depends on                                     | Status      |
+| ----- | ----------------------------------------- | ---------------------------------------------- | ----------- |
+| 1     | Repository and project foundation         | —                                              | Completed   |
+| 2     | Design system and global layout           | Phase 1                                        | Not started |
+| 3     | Homepage and professional profile         | Phase 2                                        | Not started |
+| 4     | Personal projects showcase                | Phases 2 and 3                                 | Not started |
+| 5     | Internationalization                      | Phases 3 and 4                                 | Not started |
+| 6     | Personal assets and CV                    | Phases 3 and 5 for the pages that display them | Not started |
+| 7     | SEO, accessibility, and quality assurance | Phases 2–6                                     | Not started |
+| 8     | Production deployment and launch          | Phase 7                                        | Not started |
+
+Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those assets are supplied by Roland. Until they arrive, the implementation uses a clearly labeled placeholder and does not invent a photograph or a CV.
+
+## Progress
+
+- [x] Phase 1 — Repository and project foundation
+- [ ] Phase 2 — Design system and global layout
+- [ ] Phase 3 — Homepage and professional profile
+- [ ] Phase 4 — Personal projects showcase
+- [ ] Phase 5 — Internationalization
+- [ ] Phase 6 — Personal assets and CV
+- [ ] Phase 7 — SEO, accessibility, and quality assurance
+- [ ] Phase 8 — Production deployment and launch
+
+## Phase summaries
+
+### Phase 1 — Repository and project foundation
+
+Completed on 31 October 2026. The Astro project, Tailwind CSS 4, TypeScript strict mode, ESLint, Prettier, locale routing configuration, the placeholder homepage, and Vercel static-hosting preparation are in place. Development, checks, lint, formatting, build, and preview were verified.
+
+### Phase 2 — Design system and global layout
+
+Define semantic color variables, typography, spacing, the shared layout, header, footer, and light/dark theme switching before writing the real page content.
+
+### Phase 3 — Homepage and professional profile
+
+Build the single-page homepage: hero, about, experience, education, skills, and contact. Use only supplied facts. Missing education and contact details stay as labeled placeholders.
+
+### Phase 4 — Personal projects showcase
+
+Add the projects index, homepage project cards, and detail pages for MediaShelf and Relovia. Share one typed content source between the cards and the detail pages. Use real screenshots only.
+
+### Phase 5 — Internationalization
+
+Add Spanish pages for every public route, a language switcher that keeps the current page, and localized metadata. Spanish copy must read as natural Spanish.
+
+### Phase 6 — Personal assets and CV
+
+Add the supplied photograph, the English and Spanish CV files, the final favicon, and the Open Graph image. Do not generate substitutes.
+
+### Phase 7 — SEO, accessibility, and quality assurance
+
+Complete metadata, sitemap, structured data, WCAG 2.2 AA checks, performance work, and cross-browser verification.
+
+### Phase 8 — Production deployment and launch
+
+Connect the GitHub repository to Vercel, attach `rolandschlosser.dev` through Cloudflare without changing the MediaShelf or Relovia DNS records, and verify the live site.
+
+## Open items
+
+These do not reopen Phase 1. They need a decision before the related phase is published.
+
+- Roland approved a one-time force-push of local `f086e69` to `origin/main`. It has not been run. GitHub still has `9400b78`, whose message includes the `Co-authored-by` trailer.
+- Email, LinkedIn, and the public GitHub profile URL are not yet supplied.
+- Education details, the university name, and teaching dates are not yet supplied.
+- MediaShelf and Relovia repository URLs, screenshots, the photograph, and both CV files are not yet supplied.
