@@ -75,7 +75,8 @@
 
   h1,
   h2,
-  h3 {
+  h3,
+  h4 {
     font-weight: 600;
     letter-spacing: -0.02em;
     line-height: 1.25;
@@ -92,6 +93,10 @@
 
   h3 {
     font-size: 1.25rem;
+  }
+
+  h4 {
+    font-size: 1rem;
   }
 
   @media (width >= 48rem) {
