@@ -1,0 +1,65 @@
+---
+import PublicLink from '../PublicLink.astro';
+import type { PublicLink as PublicLinkData } from '../../data/profile';
+
+interface Props {
+  title: string;
+  introduction: string;
+  description: string;
+  photograph: string;
+  projectsHref: string;
+  projectsLabel: string;
+  contactHref: string;
+  contactLabel: string;
+  github: PublicLinkData;
+  linkedin: PublicLinkData;
+}
+
+const {
+  title,
+  introduction,
+  description,
+  photograph,
+  projectsHref,
+  projectsLabel,
+  contactHref,
+  contactLabel,
+  github,
+  linkedin,
+} = Astro.props;
+---
+
+<section aria-labelledby="intro-heading">
+  <div class="page-container grid gap-10 py-16 md:py-24 lg:grid-cols-[minmax(0,1fr)_16rem] lg:items-start lg:gap-16">
+    <div class="min-w-0">
+      <p class="font-mono text-xs tracking-wide text-muted">{title}</p>
+      <h1 id="intro-heading" class="mt-3">
+        {introduction}
+      </h1>
+      <p class="reading-measure mt-6">{description}</p>
+      <ul class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-2">
+        <li>
+          <a class="text-accent underline" href={projectsHref}>
+            {projectsLabel}
+          </a>
+        </li>
+        <li>
+          <a class="text-accent underline" href={contactHref}>
+            {contactLabel}
+          </a>
+        </li>
+        <li>
+          <PublicLink link={github} />
+        </li>
+        <li>
+          <PublicLink link={linkedin} />
+        </li>
+      </ul>
+    </div>
+    <figure class="w-full max-w-64">
+      <div class="flex aspect-[4/5] items-center justify-center border border-border bg-surface p-6 text-center">
+        <p class="text-sm text-muted">{photograph}</p>
+      </div>
+    </figure>
+  </div>
+</section>

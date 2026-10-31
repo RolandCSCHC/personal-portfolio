@@ -1,0 +1,25 @@
+---
+import type { EducationEntry } from '../../data/profile';
+import Section from './Section.astro';
+
+interface Props {
+  title: string;
+  entries: EducationEntry[];
+}
+
+const { title, entries } = Astro.props;
+---
+
+<Section id="education" title={title}>
+  <div class="reading-measure grid gap-8">
+    {entries.map((entry) => (
+      <article>
+        <h3>{entry.institution}</h3>
+        {entry.credential && <p class="mt-1">{entry.credential}</p>}
+        <p class="mt-1 text-muted">
+          <time datetime={entry.dateTime}>{entry.dates}</time>
+        </p>
+      </article>
+    ))}
+  </div>
+</Section>

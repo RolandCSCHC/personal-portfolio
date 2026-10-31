@@ -1,0 +1,22 @@
+---
+import type { PublicLink as PublicLinkData } from '../../data/profile';
+import PublicLink from '../PublicLink.astro';
+import Section from './Section.astro';
+
+interface Props {
+  title: string;
+  links: PublicLinkData[];
+}
+
+const { title, links } = Astro.props;
+---
+
+<Section id="contact" title={title}>
+  <ul class="grid gap-2">
+    {links.map((link) => (
+      <li>
+        <PublicLink link={link} />
+      </li>
+    ))}
+  </ul>
+</Section>

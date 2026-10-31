@@ -1,0 +1,68 @@
+---
+import type { ExperienceRole } from '../../data/profile';
+import Section from './Section.astro';
+
+interface Props {
+  title: string;
+  roles: ExperienceRole[];
+  page?: boolean;
+}
+
+const { title, roles, page = false } = Astro.props;
+const RoleHeading = page ? 'h2' : 'h3';
+const ListHeading = page ? 'h3' : 'h4';
+---
+
+<Section id="experience" title={title} page={page}>
+  <div class="reading-measure grid gap-12">
+    {roles.map((role) => (
+      <article>
+        <RoleHeading>{role.title}</RoleHeading>
+        {role.organization && (
+          <p class="mt-1 text-muted">{role.organization}</p>
+        )}
+        {role.periods.length > 0 && (
+          <ul class="mt-4 grid gap-2">
+            {role.periods.map((period) => (
+              <li>
+                {period.label && (
+                  <>
+                    {period.label}
+                    {': '}
+                  </>
+                )}
+                <time datetime={period.startDateTime}>{period.start}</time>
+                {' – '}
+                {period.endDateTime ? (
+                  <time datetime={period.endDateTime}>{period.end}</time>
+                ) : (
+                  period.end
+                )}
+              </li>
+            ))}
+          </ul>
+        )}
+        {role.missing.length > 0 && (
+          <dl class="mt-4 grid gap-3">
+            {role.missing.map((field) => (
+              <div>
+                <dt class="text-sm font-medium">{field.label}</dt>
+                <dd class="text-muted">{field.value}</dd>
+              </div>
+            ))}
+          </dl>
+        )}
+        {role.lists.map((list) => (
+          <div class="mt-6">
+            <ListHeading>{list.title}</ListHeading>
+            <ul class="mt-2 list-disc space-y-1 pl-5">
+              {list.items.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </article>
+    ))}
+  </div>
+</Section>
