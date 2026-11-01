@@ -3,6 +3,7 @@ import { cvDownload } from '../../data/assets';
 import { pageTitle } from '../../data/profile';
 import { getProfile } from '../../i18n/profile';
 import type { Locale } from '../../i18n/locales';
+import { getUi } from '../../i18n/ui';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Section from '../sections/Section.astro';
 
@@ -12,6 +13,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const profile = getProfile(locale);
+const ui = getUi(locale);
 const cv = cvDownload(locale);
 ---
 
@@ -28,9 +30,12 @@ const cv = cvDownload(locale);
           <a
             class="inline-flex min-h-11 items-center text-accent underline"
             href={cv.href}
+            rel="noopener noreferrer"
+            target="_blank"
             type="application/pdf"
           >
             {profile.cv.download}
+            <span class="sr-only"> {ui.newTab}</span>
           </a>
         </p>
       </>
