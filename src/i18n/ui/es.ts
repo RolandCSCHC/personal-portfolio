@@ -34,6 +34,7 @@ export const ui = {
     description:
       'Ingeniero de software que construye software práctico y escalable, disfruta enseñar programación y convertir problemas complejos en soluciones simples.',
     photograph: 'Fotografía aún no publicada',
+    photographAlt: 'Retrato de Roland Schlösser',
   },
   about: {
     title: 'Sobre mí',
@@ -115,5 +116,10 @@ export const ui = {
   cv: {
     title: 'Currículum',
     unpublished: 'El currículum aún no está publicado.',
+    published: 'Descarga el currículum en PDF.',
+    download: 'Descargar currículum (PDF)',
+  },
+  sharing: {
+    imageAlt: 'Roland Schlösser, ingeniero de software',
   },
 } satisfies Ui;

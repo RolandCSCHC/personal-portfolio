@@ -31,6 +31,7 @@ export type Ui = {
     introduction: string;
     description: string;
     photograph: string;
+    photographAlt: string;
   };
   about: {
     title: string;
@@ -90,5 +91,10 @@ export type Ui = {
   cv: {
     title: string;
     unpublished: string;
+    published: string;
+    download: string;
+  };
+  sharing: {
+    imageAlt: string;
   };
 };

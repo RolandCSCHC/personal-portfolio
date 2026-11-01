@@ -186,6 +186,12 @@ Decision: The Spanish degree is “Ingeniero Civil en Ciencias de la Computació
 Reason: Roland corrected the Phase 5 translation.
 Phase: 5
 
+### 2026-11-01 — Photograph, CV files, favicon, and sharing image
+
+Decision: Place the photograph at `src/assets/profile/roland-schlosser.jpg` so Astro can build a responsive image. Publish the CVs at `public/cv/roland-schlosser-cv-en.pdf` and `public/cv/roland-schlosser-cv-es.pdf`. Use an RS monogram, drawn from Inter at weight 600, as the favicon. Use one 1200×630 Open Graph image with the name and the title “Software Engineer” on the approved light background.
+Reason: Phase 6. Roland supplied the photograph and both CV files. A public-folder photograph would be served unchanged, and the phase asks for optimized responsive output. The CV filenames are the public URLs.
+Phase: 6
+
 ## Future entries
 
 Add the next decision in this format:

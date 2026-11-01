@@ -94,11 +94,11 @@ Completed on 31 October 2026. MediaShelf and Relovia are stored in one Astro con
 
 ### Phase 5 — Internationalization
 
-Completed on 31 October 2026. Every public page exists in English and Spanish. Shared page components read typed copy, dates follow the active locale, and the language control keeps the current page. Canonical URLs, `hreflang`, and Open Graph metadata use `https://rolandschlosser.dev`. The CV pages are shells until the files arrive in Phase 6.
+Completed on 31 October 2026. Every public page exists in English and Spanish. Shared page components read typed copy, dates follow the active locale, and the language control keeps the current page. Canonical URLs, `hreflang`, and Open Graph metadata use `https://rolandschlosser.dev`. The CV pages offer the PDF for that language.
 
 ### Phase 6 — Personal assets and CV
 
-Add the supplied photograph, the English and Spanish CV files, the final favicon, and the Open Graph image. Do not generate substitutes.
+Add the supplied photograph, the English and Spanish CV files, the final favicon, and the Open Graph image. Do not generate substitutes. The photograph, both CV files, the favicon, and the 1200×630 sharing image are in place.
 
 ### Phase 7 — SEO, accessibility, and quality assurance
 
@@ -113,5 +113,3 @@ Connect the GitHub repository to Vercel, attach `rolandschlosser.dev` through Cl
 These do not reopen Phase 1. They need a decision before the related phase is published.
 
 - Roland approved a one-time force-push of local `f086e69` to `origin/main`. It has not been run. GitHub still has `9400b78`, whose message includes the `Co-authored-by` trailer.
-- The professional photograph is not yet supplied.
-- Both CV files are not on the site yet. Roland supplied the English CV on 31 October 2026 as the source for teaching and education.

@@ -1,4 +1,5 @@
 ---
+import { cvDownload, portraitImage } from '../../data/assets';
 import { homeTitle } from '../../data/profile';
 import { getProfile } from '../../i18n/profile';
 import type { Locale } from '../../i18n/locales';
@@ -12,6 +13,8 @@ interface Props {
 
 const { locale } = Astro.props;
 const profile = getProfile(locale);
+const portrait = portraitImage();
+const cv = cvDownload(locale);
 ---
 
 <BaseLayout
@@ -24,6 +27,10 @@ const profile = getProfile(locale);
     introduction={profile.hero.introduction}
     description={profile.hero.description}
     photograph={profile.hero.photograph}
+    portrait={portrait}
+    portraitAlt={profile.hero.photographAlt}
+    cvHref={cv?.href ?? null}
+    cvLabel={profile.cv.download}
     projectsHref={profile.hero.projectsHref}
     projectsLabel={profile.hero.projectsLabel}
     contactHref={profile.hero.contactHref}

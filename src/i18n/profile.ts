@@ -117,6 +117,7 @@ export function getProfile(locale: Locale) {
       introduction: ui.hero.introduction,
       description: ui.hero.description,
       photograph: ui.hero.photograph,
+      photographAlt: ui.hero.photographAlt,
       projectsHref: localeHref(locale, 'projects'),
       projectsLabel: ui.nav.projects,
       contactHref: '#contact',

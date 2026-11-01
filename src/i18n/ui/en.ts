@@ -34,6 +34,7 @@ export const ui = {
     description:
       'Software Engineer who builds practical, scalable software, loves teaching programming, and enjoys turning complex problems into simple solutions.',
     photograph: 'Photograph not published yet',
+    photographAlt: 'Portrait of Roland Schlösser',
   },
   about: {
     title: 'About',
@@ -115,5 +116,10 @@ export const ui = {
   cv: {
     title: 'CV',
     unpublished: 'The CV is not published yet.',
+    published: 'Download the CV as a PDF.',
+    download: 'Download CV (PDF)',
+  },
+  sharing: {
+    imageAlt: 'Roland Schlösser, Software Engineer',
   },
 } satisfies Ui;

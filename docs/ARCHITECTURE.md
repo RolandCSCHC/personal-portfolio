@@ -25,6 +25,7 @@ TypeScript 7 is not used because `@astrojs/check` accepts TypeScript 5 or 6. `@l
 
 ```text
 src/
+├── assets/profile/    Professional photograph, when supplied
 ├── components/
 │   ├── layout/          Header, footer, language control, theme control
 │   ├── pages/           Shared page views used by both locales
@@ -34,6 +35,7 @@ src/
 ├── content/projects/    mediashelf.json and relovia.json
 ├── content.config.ts    Projects collection schema
 ├── data/
+│   ├── assets.ts        Supplied photograph and CV files
 │   ├── profile.ts       Locale-neutral facts and contact links
 │   └── projects.ts      Loads the collection and presents one locale
 ├── i18n/
@@ -53,8 +55,10 @@ src/
 ├── scripts/theme.ts
 └── styles/              global.css and fonts.css
 public/
+├── cv/                  Supplied PDF files
 ├── favicon.svg
 ├── images/projects/
+├── og.png
 └── robots.txt
 ```
 
@@ -66,13 +70,13 @@ The language control offers English and Español. It links to the same page in t
 
 MediaShelf and Relovia live in the `projects` content collection defined in `src/content.config.ts`. Each record holds the name, summary, confirmed features, stack, live URL, repository links, screenshot, and display order. Summary, features, image alternative text, and repository labels are stored once per record in both languages. The collection rejects a record that is missing either language or has feature lists of different lengths. Each screenshot is a 1600-pixel-wide JPEG in `public/images/projects/`, with width and height. Repository links are a list, so Relovia can publish both its backend and frontend repositories. `loadProjects()` is the only read path. `presentProject()` selects one locale. `/projects`, the project detail pages, their Spanish routes, and the footer application links all use it. The homepage does not list the projects.
 
-`BaseLayout` emits the localized title and description, a canonical URL, `hreflang` alternates for `en`, `es`, and `x-default`, and Open Graph title, description, URL, type, and locale. English Open Graph locale is `en_US`. Spanish is `es_CL`. There is no social image yet.
+`BaseLayout` emits the localized title and description, a canonical URL, `hreflang` alternates for `en`, `es`, and `x-default`, and Open Graph title, description, URL, type, image, and locale. English Open Graph locale is `en_US`. Spanish is `es_CL`. The sharing image is `public/og.png`, 1200×630, and each page references it with a localized alternative text.
 
 `src/styles/global.css` defines the approved light and dark palettes as semantic variables. Tailwind utilities reference those variables. Inter and JetBrains Mono are self-hosted from their Latin variable files. The content column is 70rem (1120px). Prose is limited to 45rem (720px). Below 64rem the header stacks; from 64rem upward it is a horizontal row.
 
 `trailingSlash` is `never`. Public URLs are `/`, `/about`, `/experience`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash. The homepage canonical URL keeps the root slash: `https://rolandschlosser.dev/`.
 
-`robots.txt` allows all crawlers. It is not yet a launch configuration. The favicon is a temporary monogram, not the final identity mark.
+`robots.txt` allows all crawlers. It is not yet a launch configuration. The favicon is an RS monogram in Inter, using the light background and primary text color.
 
 Vercel can build the repository as a static Astro project. The production domain is not configured, and Cloudflare DNS has not been changed.
 
@@ -80,13 +84,7 @@ Vercel can build the repository as a static Astro project. The production domain
 
 ### Directory organization
 
-Add directories when they receive real files.
-
-```text
-public/
-├── cv/                  Supplied PDF files
-└── images/profile/      Professional photograph
-```
+The photograph is `src/assets/profile/roland-schlosser.jpg` so the build can emit responsive images. `.jpeg`, `.png`, and `.webp` are accepted with that base name, and only one file should be present. The English CV is `public/cv/roland-schlosser-cv-en.pdf`. The Spanish CV is `public/cv/roland-schlosser-cv-es.pdf`. Until a file is there, the page keeps its labeled placeholder.
 
 Page files stay thin. A locale page selects the language and renders a shared component. Project fields are read from the content source rather than copied into each template.
 

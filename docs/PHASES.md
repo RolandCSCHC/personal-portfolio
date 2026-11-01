@@ -488,33 +488,33 @@ Add the real personal assets. Do not generate a photograph, a CV, or application
 
 #### Photograph
 
-Wait for the supplied portrait.
+Place the supplied portrait at `src/assets/profile/roland-schlosser.jpg`. `.jpeg`, `.png`, and `.webp` are also accepted when the base name is `roland-schlosser` and only one file is present.
 
-- [ ] Display it in the hero at an appropriate crop.
-- [ ] Provide responsive, optimized image output.
-- [ ] Write descriptive alternative text in English and Spanish.
+- [x] Display it in the hero at an appropriate crop.
+- [x] Provide responsive, optimized image output.
+- [x] Write descriptive alternative text in English and Spanish.
 
 #### CV files
 
-Wait for the supplied PDFs.
+Place the English PDF at `public/cv/roland-schlosser-cv-en.pdf` and the Spanish PDF at `public/cv/roland-schlosser-cv-es.pdf`.
 
-- [ ] Publish `/cv/roland-schlosser-cv-en.pdf`.
-- [ ] Publish `/cv/roland-schlosser-cv-es.pdf`.
-- [ ] Link each file from the matching language with a clear download label.
-- [ ] Serve the files as PDFs.
-- [ ] Keep the download usable on a phone.
-- [ ] Reject any document that contains information Roland has not supplied.
+- [x] Publish `/cv/roland-schlosser-cv-en.pdf`.
+- [x] Publish `/cv/roland-schlosser-cv-es.pdf`.
+- [x] Link each file from the matching language with a clear download label.
+- [x] Serve the files as PDFs.
+- [x] Keep the download usable on a phone.
+- [x] Reject any document that contains information Roland has not supplied.
 
 #### Favicon
 
-- [ ] Replace the Phase 1 placeholder with a simple mark consistent with the site.
-- [ ] An “RS” monogram or a restrained typographic mark is acceptable.
+- [x] Replace the Phase 1 placeholder with a simple mark consistent with the site.
+- [x] An “RS” monogram or a restrained typographic mark is acceptable.
 
 #### Social image
 
-- [ ] Create an Open Graph image with the name and professional title.
-- [ ] Use the approved visual identity and sufficient contrast.
-- [ ] Use the current recommended share-image dimensions.
+- [x] Create an Open Graph image with the name and professional title.
+- [x] Use the approved visual identity and sufficient contrast.
+- [x] Use the current recommended share-image dimensions.
 
 ### Technical requirements
 
@@ -535,11 +535,11 @@ If an asset has not been provided, leave the labeled placeholder in place and st
 
 ### Acceptance criteria
 
-- [ ] The supplied photograph displays correctly.
-- [ ] Both CV downloads open the correct files.
-- [ ] The favicon appears in the browser.
-- [ ] The social sharing image is referenced by the pages.
-- [ ] Images and PDFs are optimized.
+- [x] The supplied photograph displays correctly.
+- [x] Both CV downloads open the correct files.
+- [x] The favicon appears in the browser.
+- [x] The social sharing image is referenced by the pages.
+- [x] Images and PDFs are optimized.
 
 ---
 

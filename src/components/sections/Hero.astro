@@ -1,4 +1,6 @@
 ---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
 import PublicLink from '../PublicLink.astro';
 import type { PublicLink as PublicLinkData } from '../../data/profile';
 
@@ -7,6 +9,10 @@ interface Props {
   introduction: string;
   description: string;
   photograph: string;
+  portrait: ImageMetadata | null;
+  portraitAlt: string;
+  cvHref: string | null;
+  cvLabel: string;
   projectsHref: string;
   projectsLabel: string;
   contactHref: string;
@@ -20,6 +26,10 @@ const {
   introduction,
   description,
   photograph,
+  portrait,
+  portraitAlt,
+  cvHref,
+  cvLabel,
   projectsHref,
   projectsLabel,
   contactHref,
@@ -48,6 +58,17 @@ const {
             {contactLabel}
           </a>
         </li>
+        {cvHref ? (
+          <li>
+            <a
+              class="text-accent underline"
+              href={cvHref}
+              type="application/pdf"
+            >
+              {cvLabel}
+            </a>
+          </li>
+        ) : null}
         <li>
           <PublicLink link={github} />
         </li>
@@ -57,9 +78,25 @@ const {
       </ul>
     </div>
     <figure class="w-full max-w-64">
-      <div class="flex aspect-[4/5] items-center justify-center border border-border bg-surface p-6 text-center">
-        <p class="text-sm text-muted">{photograph}</p>
-      </div>
+      {portrait ? (
+        <Picture
+          src={portrait}
+          alt={portraitAlt}
+          widths={[256, 512, 768]}
+          sizes="(min-width: 20rem) 16rem, calc(100vw - 2.5rem)"
+          formats={['avif', 'webp']}
+          fallbackFormat="jpeg"
+          fit="cover"
+          position="top"
+          priority
+          class="aspect-[4/5] h-auto w-full object-cover object-top"
+          pictureAttributes={{ class: 'block w-full' }}
+        />
+      ) : (
+        <div class="flex aspect-[4/5] items-center justify-center border border-border bg-surface p-6 text-center">
+          <p class="text-sm text-muted">{photograph}</p>
+        </div>
+      )}
     </figure>
   </div>
 </section>

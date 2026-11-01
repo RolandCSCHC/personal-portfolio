@@ -1,4 +1,5 @@
 ---
+import { cvDownload } from '../../data/assets';
 import { pageTitle } from '../../data/profile';
 import { getProfile } from '../../i18n/profile';
 import type { Locale } from '../../i18n/locales';
@@ -11,14 +12,30 @@ interface Props {
 
 const { locale } = Astro.props;
 const profile = getProfile(locale);
+const cv = cvDownload(locale);
 ---
 
 <BaseLayout
   title={pageTitle(profile.cv.title)}
-  description={profile.cv.unpublished}
+  description={cv ? profile.cv.published : profile.cv.unpublished}
   locale={locale}
 >
   <Section id="cv" title={profile.cv.title} page>
-    <p class="reading-measure text-muted">{profile.cv.unpublished}</p>
+    {cv ? (
+      <>
+        <p class="reading-measure">{profile.cv.published}</p>
+        <p class="mt-6">
+          <a
+            class="inline-flex min-h-11 items-center text-accent underline"
+            href={cv.href}
+            type="application/pdf"
+          >
+            {profile.cv.download}
+          </a>
+        </p>
+      </>
+    ) : (
+      <p class="reading-measure text-muted">{profile.cv.unpublished}</p>
+    )}
   </Section>
 </BaseLayout>
