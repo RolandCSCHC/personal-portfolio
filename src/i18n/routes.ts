@@ -3,6 +3,17 @@ import type { Locale } from './locales';
 
 const staticRoutes = new Set(['', 'experience', 'projects', 'cv']);
 
+/** Public pages in sitemap order. Project slugs are the collection ids. */
+export function publicRoutePaths(projectSlugs: readonly string[]): string[] {
+  return [
+    '',
+    'experience',
+    'projects',
+    ...projectSlugs.map((slug) => `projects/${slug}`),
+    'cv',
+  ];
+}
+
 /** Path without a leading slash or locale prefix. The homepage is an empty string. */
 export function toRoutePath(pathname: string): string {
   let path = pathname;

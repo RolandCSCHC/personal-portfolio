@@ -1,25 +1,28 @@
 ---
-import { getRelativeLocaleUrl } from 'astro:i18n';
 import Footer from '../components/layout/Footer.astro';
 import Header from '../components/layout/Header.astro';
+import { siteName } from '../data/profile';
 import {
   currentLocale,
-  defaultLocale,
   locales,
   openGraphLocale,
   type Locale,
 } from '../i18n/locales';
 import { toRoutePath } from '../i18n/routes';
 import { getUi } from '../i18n/ui';
+import { buildJsonLd, type JsonLdNode } from '../seo/jsonld';
+import { absoluteLocaleUrl, localeAlternates } from '../seo/urls';
 import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
   locale: Locale;
+  graph?: JsonLdNode[];
+  mainEntityId?: string;
 }
 
-const { title, description, locale } = Astro.props;
+const { title, description, locale, graph, mainEntityId } = Astro.props;
 const routeLocale = currentLocale(Astro.currentLocale);
 
 if (routeLocale !== locale) {
@@ -37,20 +40,19 @@ if (!Astro.site) {
 const routePath = toRoutePath(Astro.url.pathname);
 const ui = getUi(locale);
 const site = Astro.site;
-
-function absolute(code: Locale): string {
-  const relative = getRelativeLocaleUrl(code, routePath || undefined);
-  return new URL(relative, site).href;
-}
-
-const canonical = absolute(locale);
+const canonical = absoluteLocaleUrl(site, locale, routePath);
 const socialImage = new URL('/og.png', site).href;
 const socialImageAlt = ui.sharing.imageAlt;
-const alternates = locales.map((code) => ({
-  hreflang: code,
-  href: absolute(code),
-}));
-const xDefault = absolute(defaultLocale);
+const alternates = localeAlternates(site, routePath);
+const jsonLd = await buildJsonLd({
+  site,
+  locale,
+  canonical,
+  title,
+  description,
+  graph,
+  mainEntityId,
+});
 ---
 
 <!doctype html>
@@ -91,6 +93,7 @@ const xDefault = absolute(defaultLocale);
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
     {alternates.map((alternate) => (
       <link
         rel="alternate"
@@ -98,11 +101,11 @@ const xDefault = absolute(defaultLocale);
         href={alternate.href}
       />
     ))}
-    <link rel="alternate" hreflang="x-default" href={xDefault} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={siteName} />
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:alt" content={socialImageAlt} />
     <meta property="og:image:type" content="image/png" />
@@ -122,13 +125,14 @@ const xDefault = absolute(defaultLocale);
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
+    <script is:inline type="application/ld+json" set:html={jsonLd} />
   </head>
   <body class="flex min-h-dvh flex-col bg-background font-sans text-foreground">
     <a class="skip-link" href="#content">
       {ui.skip}
     </a>
     <Header locale={locale} />
-    <main id="content" class="flex flex-1 flex-col">
+    <main id="content" tabindex="-1" class="flex flex-1 flex-col">
       <slot />
     </main>
     <Footer locale={locale} />

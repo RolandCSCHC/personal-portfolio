@@ -4,7 +4,10 @@ import { pageTitle } from '../../data/profile';
 import { presentProject } from '../../data/projects';
 import { getProfile } from '../../i18n/profile';
 import type { Locale } from '../../i18n/locales';
+import { toRoutePath } from '../../i18n/routes';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { softwareApplicationNode } from '../../seo/jsonld';
+import { absoluteLocaleUrl } from '../../seo/urls';
 import ProjectDetail from '../projects/ProjectDetail.astro';
 
 interface Props {
@@ -15,12 +18,27 @@ interface Props {
 const { locale, project } = Astro.props;
 const profile = getProfile(locale);
 const view = presentProject(project, locale);
+
+if (!Astro.site) {
+  throw new Error(
+    'Set site in astro.config.mjs before rendering structured data.',
+  );
+}
+
+const pageUrl = absoluteLocaleUrl(
+  Astro.site,
+  locale,
+  toRoutePath(Astro.url.pathname),
+);
+const application = await softwareApplicationNode(Astro.site, view, pageUrl);
 ---
 
 <BaseLayout
   title={pageTitle(view.name)}
   description={view.summary}
   locale={locale}
+  graph={[application]}
+  mainEntityId={application['@id']}
 >
   <ProjectDetail project={view} labels={profile.projects} />
 </BaseLayout>
