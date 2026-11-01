@@ -5,6 +5,7 @@ import { getProfile } from '../../i18n/profile';
 import type { Locale } from '../../i18n/locales';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Contact from '../sections/Contact.astro';
+import Education from '../sections/Education.astro';
 import Hero from '../sections/Hero.astro';
 
 interface Props {
@@ -19,24 +20,22 @@ const cv = cvDownload(locale);
 
 <BaseLayout
   title={homeTitle(profile.hero.title)}
-  description={profile.hero.description}
+  description={profile.hero.paragraphs.join(' ')}
   locale={locale}
 >
   <Hero
     title={profile.hero.title}
     introduction={profile.hero.introduction}
-    description={profile.hero.description}
+    paragraphs={profile.hero.paragraphs}
     photograph={profile.hero.photograph}
     portrait={portrait}
     portraitAlt={profile.hero.photographAlt}
     cvHref={cv?.href ?? null}
     cvLabel={profile.cv.download}
-    projectsHref={profile.hero.projectsHref}
-    projectsLabel={profile.hero.projectsLabel}
-    contactHref={profile.hero.contactHref}
-    contactLabel={profile.hero.contactLabel}
-    github={profile.github}
-    linkedin={profile.linkedin}
+  />
+  <Education
+    title={profile.education.title}
+    entries={profile.education.entries}
   />
   <Contact title={profile.contact.title} links={profile.contact.links} />
 </BaseLayout>

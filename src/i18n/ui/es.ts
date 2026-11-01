@@ -8,7 +8,6 @@ export const ui = {
     label: 'Principal',
     home: 'Inicio',
     projects: 'Proyectos',
-    about: 'Sobre mí',
     experience: 'Experiencia',
   },
   language: {
@@ -24,24 +23,15 @@ export const ui = {
     dark: 'Oscuro',
     system: 'Sistema',
   },
-  footer: {
-    contact: 'Contacto',
-    applications: 'Aplicaciones',
-  },
   hero: {
     title: 'Ingeniero de software',
     introduction: 'Hola, soy Roland Schlösser.',
-    description:
-      'Ingeniero de software que construye software práctico y escalable, disfruta enseñar programación y convertir problemas complejos en soluciones simples.',
-    photograph: 'Fotografía aún no publicada',
-    photographAlt: 'Retrato de Roland Schlösser',
-  },
-  about: {
-    title: 'Sobre mí',
     paragraphs: [
       'Soy ingeniero de software y trabajo en desarrollo full stack. Me interesan la arquitectura de software, las tecnologías en la nube y la creación de productos de software útiles.',
       'Enseñé programación en la Universidad de los Andes, donde orienté a los estudiantes y apoyé la coordinación de los cursos.',
     ],
+    photograph: 'Fotografía aún no publicada',
+    photographAlt: 'Retrato de Roland Schlösser',
   },
   experience: {
     title: 'Experiencia',

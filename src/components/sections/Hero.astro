@@ -1,41 +1,27 @@
 ---
 import { Picture } from 'astro:assets';
 import type { ImageMetadata } from 'astro';
-import PublicLink from '../PublicLink.astro';
-import type { PublicLink as PublicLinkData } from '../../data/profile';
 
 interface Props {
   title: string;
   introduction: string;
-  description: string;
+  paragraphs: string[];
   photograph: string;
   portrait: ImageMetadata | null;
   portraitAlt: string;
   cvHref: string | null;
   cvLabel: string;
-  projectsHref: string;
-  projectsLabel: string;
-  contactHref: string;
-  contactLabel: string;
-  github: PublicLinkData;
-  linkedin: PublicLinkData;
 }
 
 const {
   title,
   introduction,
-  description,
+  paragraphs,
   photograph,
   portrait,
   portraitAlt,
   cvHref,
   cvLabel,
-  projectsHref,
-  projectsLabel,
-  contactHref,
-  contactLabel,
-  github,
-  linkedin,
 } = Astro.props;
 ---
 
@@ -46,36 +32,18 @@ const {
       <h1 id="intro-heading" class="mt-3">
         {introduction}
       </h1>
-      <p class="reading-measure mt-6">{description}</p>
-      <ul class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-5 sm:gap-y-2">
-        <li>
-          <a class="text-accent underline" href={projectsHref}>
-            {projectsLabel}
+      <div class="reading-measure mt-6 grid gap-4">
+        {paragraphs.map((paragraph) => (
+          <p>{paragraph}</p>
+        ))}
+      </div>
+      {cvHref ? (
+        <p class="mt-8">
+          <a class="text-accent underline" href={cvHref} type="application/pdf">
+            {cvLabel}
           </a>
-        </li>
-        <li>
-          <a class="text-accent underline" href={contactHref}>
-            {contactLabel}
-          </a>
-        </li>
-        {cvHref ? (
-          <li>
-            <a
-              class="text-accent underline"
-              href={cvHref}
-              type="application/pdf"
-            >
-              {cvLabel}
-            </a>
-          </li>
-        ) : null}
-        <li>
-          <PublicLink link={github} />
-        </li>
-        <li>
-          <PublicLink link={linkedin} />
-        </li>
-      </ul>
+        </p>
+      ) : null}
     </div>
     <figure class="w-full max-w-64">
       {portrait ? (

@@ -46,8 +46,7 @@ src/
 │   └── ui/              Typed English and Spanish interface copy
 ├── layouts/BaseLayout.astro
 ├── pages/
-│   ├── index.astro      Introduction and contact
-│   ├── about.astro
+│   ├── index.astro      Introduction, education, and contact
 │   ├── experience.astro
 │   ├── cv.astro
 │   ├── projects/
@@ -68,13 +67,13 @@ public/
 
 The language control offers English and Español. It links to the same page in the other language, keeps the current fragment, and falls back to that language’s homepage when the page does not exist. The selected option shows the active language. The control is a native select, so it works from the keyboard.
 
-MediaShelf and Relovia live in the `projects` content collection defined in `src/content.config.ts`. Each record holds the name, summary, confirmed features, stack, live URL, repository links, screenshot, and display order. Summary, features, image alternative text, and repository labels are stored once per record in both languages. The collection rejects a record that is missing either language or has feature lists of different lengths. Each screenshot is a 1600-pixel-wide JPEG in `public/images/projects/`, with width and height. Repository links are a list, so Relovia can publish both its backend and frontend repositories. `loadProjects()` is the only read path. `presentProject()` selects one locale. `/projects`, the project detail pages, their Spanish routes, and the footer application links all use it. The homepage does not list the projects.
+MediaShelf and Relovia live in the `projects` content collection defined in `src/content.config.ts`. Each record holds the name, summary, confirmed features, stack, live URL, repository links, screenshot, and display order. Summary, features, image alternative text, and repository labels are stored once per record in both languages. The collection rejects a record that is missing either language or has feature lists of different lengths. Each screenshot is a 1600-pixel-wide JPEG in `public/images/projects/`, with width and height. Repository links are a list, so Relovia can publish both its backend and frontend repositories. `loadProjects()` is the only read path. `presentProject()` selects one locale. `/projects`, the project detail pages, and their Spanish routes use it. The homepage does not list the projects.
 
 `BaseLayout` emits the localized title and description, a canonical URL, `hreflang` alternates for `en`, `es`, and `x-default`, and Open Graph title, description, URL, type, image, and locale. English Open Graph locale is `en_US`. Spanish is `es_CL`. The sharing image is `public/og.png`, 1200×630, and each page references it with a localized alternative text.
 
 `src/styles/global.css` defines the approved light and dark palettes as semantic variables. Tailwind utilities reference those variables. Inter and JetBrains Mono are self-hosted from their Latin variable files. The content column is 70rem (1120px). Prose is limited to 45rem (720px). Below 64rem the header stacks; from 64rem upward it is a horizontal row.
 
-`trailingSlash` is `never`. Public URLs are `/`, `/about`, `/experience`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash. The homepage canonical URL keeps the root slash: `https://rolandschlosser.dev/`.
+`trailingSlash` is `never`. Public URLs are `/`, `/experience`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash. `/about` redirects to `/`, and `/es/about` redirects to `/es`. The homepage canonical URL keeps the root slash: `https://rolandschlosser.dev/`.
 
 `robots.txt` allows all crawlers. It is not yet a launch configuration. The favicon is an RS monogram in Inter, using the light background and primary text color.
 
@@ -116,15 +115,15 @@ That script is the client-side JavaScript required to prevent a theme flash. Oth
 
 ### Components
 
-| Piece                           | Responsibility                                                |
-| ------------------------------- | ------------------------------------------------------------- |
-| `BaseLayout`                    | Document, metadata, language, theme attribute, global CSS     |
-| Header                          | Wordmark, primary navigation, language control, theme control |
-| Footer                          | Name, copyright, contact links, MediaShelf, Relovia           |
-| Section components              | One homepage region each                                      |
-| Project card and project detail | Presentation only; data comes from the content source         |
+| Piece                           | Responsibility                                            |
+| ------------------------------- | --------------------------------------------------------- |
+| `BaseLayout`                    | Document, metadata, language, theme attribute, global CSS |
+| Header                          | Primary navigation, language control, theme control       |
+| Footer                          | Name and copyright                                        |
+| Section components              | One homepage region each                                  |
+| Project card and project detail | Presentation only; data comes from the content source     |
 
-The header links to Home, Projects, About, and Experience. Language and theme are dropdowns. The language dropdown offers English and Español and shows the active language. The theme dropdown offers light, dark, and system, with labels in the active language. GitHub, LinkedIn, and email are links in the footer, the hero, and the contact section. The hero links to `/projects` and `#contact`. `/projects` lists MediaShelf and Relovia. Each detail page shows the supplied screenshot, the confirmed summary and features, the stack, the live application, and the supplied GitHub links. Architecture stays in each project's repository README.
+The header links to Home, Projects, and Experience. Language and theme are dropdowns. The language dropdown offers English and Español and shows the active language. The theme dropdown offers light, dark, and system, with labels in the active language. The homepage holds the introduction, photograph, CV download, education, and contact. GitHub, LinkedIn, and email are links in the contact section. `/about` and `/es/about` redirect to the matching homepage. `/projects` lists MediaShelf and Relovia. Each detail page shows the supplied screenshot, the confirmed summary and features, the stack, the live application, and the supplied GitHub links. Architecture stays in each project's repository README.
 
 ### Hosting
 

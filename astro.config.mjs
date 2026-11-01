@@ -12,6 +12,10 @@ export default defineConfig({
   site: 'https://rolandschlosser.dev',
   output: 'static',
   trailingSlash: 'never',
+  redirects: {
+    '/about': '/',
+    '/es/about': '/es',
+  },
   i18n: {
     defaultLocale,
     locales,

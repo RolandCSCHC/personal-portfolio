@@ -14,7 +14,6 @@ import {
 } from '../data/profile';
 import { formatMonth } from './dates';
 import type { Locale } from './locales';
-import { localeHref } from './routes';
 import { getUi, type Ui } from './ui';
 
 function periodLabel(kind: PeriodKind | null, ui: Ui): string | null {
@@ -115,17 +114,9 @@ export function getProfile(locale: Locale) {
     hero: {
       title: ui.hero.title,
       introduction: ui.hero.introduction,
-      description: ui.hero.description,
+      paragraphs: [...ui.hero.paragraphs],
       photograph: ui.hero.photograph,
       photographAlt: ui.hero.photographAlt,
-      projectsHref: localeHref(locale, 'projects'),
-      projectsLabel: ui.nav.projects,
-      contactHref: '#contact',
-      contactLabel: ui.contact.title,
-    },
-    about: {
-      title: ui.about.title,
-      paragraphs: [...ui.about.paragraphs],
     },
     experience: {
       title: ui.experience.title,

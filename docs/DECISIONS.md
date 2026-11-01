@@ -192,6 +192,24 @@ Decision: Place the photograph at `src/assets/profile/roland-schlosser.jpg` so A
 Reason: Phase 6. Roland supplied the photograph and both CV files. A public-folder photograph would be served unchanged, and the phase asks for optimized responsive output. The CV filenames are the public URLs.
 Phase: 6
 
+### 2026-11-01 — Homepage sections and navigation
+
+Decision: Remove About from the header. Show the about text and education on the homepage. Remove the Projects, Contact, GitHub, and LinkedIn links from the hero. Keep GitHub, LinkedIn, and email in the contact section. Keep the CV download in the hero. Redirect `/about` to `/` and `/es/about` to `/es`.
+Reason: Roland asked for this. The removed hero links repeated the header and the contact section.
+Phase: 6
+
+### 2026-11-01 — Introduction copy and footer links
+
+Decision: Use the former about paragraphs as the homepage introduction. Remove the About section. The footer shows the name and copyright only. GitHub, LinkedIn, and email stay in the contact section. MediaShelf and Relovia stay on the project pages.
+Reason: Roland asked for this. The footer repeated the contact section and the project pages.
+Phase: 6
+
+### 2026-11-01 — Header name
+
+Decision: Remove the “Roland Schlösser” link from the header. Home remains the first navigation item. The name stays in the page heading, the footer, and the document title.
+Reason: Roland asked for this. The header name repeated the heading on the homepage.
+Phase: 6
+
 ## Future entries
 
 Add the next decision in this format:

@@ -29,11 +29,6 @@ const links = [
     current: routePath === 'projects' || routePath.startsWith('projects/'),
   },
   {
-    href: localeHref(locale, 'about'),
-    label: ui.nav.about,
-    current: routePath === 'about',
-  },
-  {
     href: localeHref(locale, 'experience'),
     label: ui.nav.experience,
     current: routePath === 'experience',
@@ -48,34 +43,26 @@ const languageOptions = locales.map((code) => ({
 ---
 
 <header class="border-b border-border bg-surface">
-  <div class="page-container flex flex-col gap-4 py-4 lg:flex-row lg:items-center lg:justify-between lg:py-5">
-    <a
-      href={homeHref}
-      class="shrink-0 text-base font-semibold tracking-tight whitespace-nowrap text-foreground no-underline"
-    >
-      Roland Schlösser
-    </a>
-    <div class="flex flex-col gap-4 lg:flex-row lg:flex-wrap lg:items-center lg:justify-end lg:gap-x-6 lg:gap-y-3">
-      <nav aria-label={ui.nav.label}>
-        <ul class="flex flex-wrap gap-x-4 gap-y-2">
-          {links.map((link) => (
-            <li>
-              <a
-                href={link.href}
-                aria-current={link.current ? 'page' : undefined}
-                class:list={[
-                  'text-foreground no-underline hover:underline',
-                  link.current && 'font-semibold underline',
-                ]}
-              >
-                {link.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <LanguageSwitch label={ui.language.label} options={languageOptions} />
-      <ThemeSwitch labels={ui.theme} />
-    </div>
+  <div class="page-container flex flex-col gap-4 py-4 lg:flex-row lg:flex-wrap lg:items-center lg:gap-x-6 lg:gap-y-3 lg:py-5">
+    <nav aria-label={ui.nav.label}>
+      <ul class="flex flex-wrap gap-x-4 gap-y-2">
+        {links.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              aria-current={link.current ? 'page' : undefined}
+              class:list={[
+                'text-foreground no-underline hover:underline',
+                link.current && 'font-semibold underline',
+              ]}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    <LanguageSwitch label={ui.language.label} options={languageOptions} />
+    <ThemeSwitch labels={ui.theme} />
   </div>
 </header>

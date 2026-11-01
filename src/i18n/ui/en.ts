@@ -8,7 +8,6 @@ export const ui = {
     label: 'Primary',
     home: 'Home',
     projects: 'Projects',
-    about: 'About',
     experience: 'Experience',
   },
   language: {
@@ -24,24 +23,15 @@ export const ui = {
     dark: 'Dark',
     system: 'System',
   },
-  footer: {
-    contact: 'Contact',
-    applications: 'Applications',
-  },
   hero: {
     title: 'Software Engineer',
     introduction: "Hi, I'm Roland Schlösser.",
-    description:
-      'Software Engineer who builds practical, scalable software, loves teaching programming, and enjoys turning complex problems into simple solutions.',
-    photograph: 'Photograph not published yet',
-    photographAlt: 'Portrait of Roland Schlösser',
-  },
-  about: {
-    title: 'About',
     paragraphs: [
       'I am a software engineer working on full-stack development. I am interested in software architecture, cloud technologies, and building useful software products.',
       'I taught programming at Universidad de los Andes, where I mentored students and supported course coordination.',
     ],
+    photograph: 'Photograph not published yet',
+    photographAlt: 'Portrait of Roland Schlösser',
   },
   experience: {
     title: 'Experience',

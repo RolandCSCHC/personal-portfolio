@@ -1,7 +1,7 @@
 import { getRelativeLocaleUrl } from 'astro:i18n';
 import type { Locale } from './locales';
 
-const staticRoutes = new Set(['', 'about', 'experience', 'projects', 'cv']);
+const staticRoutes = new Set(['', 'experience', 'projects', 'cv']);
 
 /** Path without a leading slash or locale prefix. The homepage is an empty string. */
 export function toRoutePath(pathname: string): string {

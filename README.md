@@ -126,7 +126,6 @@ personal-portfolio/
 │   │   └── BaseLayout.astro
 │   ├── pages/
 │   │   ├── index.astro
-│   │   ├── about.astro
 │   │   ├── experience.astro
 │   │   ├── cv.astro
 │   │   ├── projects/
@@ -165,7 +164,6 @@ English is the default language and has no URL prefix. Spanish uses the `/es` pr
 | Page       | English                | Spanish                   |
 | ---------- | ---------------------- | ------------------------- |
 | Home       | `/`                    | `/es`                     |
-| About      | `/about`               | `/es/about`               |
 | Experience | `/experience`          | `/es/experience`          |
 | Projects   | `/projects`            | `/es/projects`            |
 | MediaShelf | `/projects/mediashelf` | `/es/projects/mediashelf` |
@@ -174,4 +172,4 @@ English is the default language and has no URL prefix. Spanish uses the `/es` pr
 
 English pages live in `src/pages/`. Spanish pages live in `src/pages/es/`. Shared markup belongs in layouts and components so each locale file stays thin. Locale codes are defined in `astro.config.mjs` and `src/i18n/locales.ts` and must stay aligned. Interface copy is in `src/i18n/ui/`. A missing or blank translation fails the build. The header language control switches to the same page in the other language.
 
-Home is the introduction and contact. About includes education, and Experience includes skills. `/projects` lists MediaShelf and Relovia, and each project has a detail page. `/cv` and `/es/cv` offer the PDF for that language. The implementation roadmap is in `docs/ROADMAP.md`.
+Home is the introduction, education, and contact. Experience includes skills. `/projects` lists MediaShelf and Relovia, and each project has a detail page. `/cv` and `/es/cv` offer the PDF for that language. `/about` and `/es/about` redirect to the homepage. The implementation roadmap is in `docs/ROADMAP.md`.

@@ -6,7 +6,6 @@ export type Ui = {
     label: string;
     home: string;
     projects: string;
-    about: string;
     experience: string;
   };
   language: {
@@ -22,20 +21,12 @@ export type Ui = {
     dark: string;
     system: string;
   };
-  footer: {
-    contact: string;
-    applications: string;
-  };
   hero: {
     title: string;
     introduction: string;
-    description: string;
+    paragraphs: readonly [string, string];
     photograph: string;
     photographAlt: string;
-  };
-  about: {
-    title: string;
-    paragraphs: readonly [string, string];
   };
   experience: {
     title: string;
