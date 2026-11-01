@@ -82,7 +82,7 @@ Completed on 31 October 2026. The Astro project, Tailwind CSS 4, TypeScript stri
 
 ### Phase 2 — Design system and global layout
 
-Completed on 31 October 2026. Semantic colors, locally hosted Inter and JetBrains Mono, the shared header and footer, and light, dark, and system theme switching are in place. The homepage was still a placeholder at the end of this phase.
+Completed on 31 October 2026. Semantic colors, locally hosted Inter and JetBrains Mono, the shared header and footer, and light and dark theme switching are in place. The theme control is one sun and moon button. The homepage was still a placeholder at the end of this phase.
 
 ### Phase 3 — Homepage and professional profile
 

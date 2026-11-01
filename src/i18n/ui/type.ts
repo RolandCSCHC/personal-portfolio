@@ -16,10 +16,8 @@ export type Ui = {
     };
   };
   theme: {
-    label: string;
-    light: string;
-    dark: string;
-    system: string;
+    toLight: string;
+    toDark: string;
   };
   hero: {
     title: string;

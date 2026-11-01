@@ -18,10 +18,8 @@ export const ui = {
     },
   },
   theme: {
-    label: 'Tema',
-    light: 'Claro',
-    dark: 'Oscuro',
-    system: 'Sistema',
+    toLight: 'Cambiar a tema claro',
+    toDark: 'Cambiar a tema oscuro',
   },
   hero: {
     title: 'Ingeniero de software',

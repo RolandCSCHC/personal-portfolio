@@ -1,59 +1,48 @@
 const storageKey = 'theme';
 
-export type ThemeChoice = 'light' | 'dark' | 'system';
+export type ThemeChoice = 'light' | 'dark';
 
 function isThemeChoice(value: string | null): value is ThemeChoice {
-  return value === 'light' || value === 'dark' || value === 'system';
-}
-
-function systemTheme(): 'light' | 'dark' {
-  return window.matchMedia('(prefers-color-scheme: dark)').matches
-    ? 'dark'
-    : 'light';
+  return value === 'light' || value === 'dark';
 }
 
 function readStoredChoice(): ThemeChoice {
   try {
     const stored = localStorage.getItem(storageKey);
-    return isThemeChoice(stored) ? stored : 'system';
+    return isThemeChoice(stored) ? stored : 'light';
   } catch {
-    return 'system';
+    return 'light';
   }
 }
 
 export function applyTheme(choice: ThemeChoice): void {
-  const root = document.documentElement;
-  root.dataset.theme = choice === 'system' ? systemTheme() : choice;
-  root.dataset.themeChoice = choice;
+  document.documentElement.dataset.theme = choice;
 }
 
-export function initThemeControls(select: HTMLSelectElement): void {
-  const fromDocument = document.documentElement.dataset.themeChoice ?? null;
-  const choice = isThemeChoice(fromDocument)
-    ? fromDocument
-    : readStoredChoice();
+function markControl(button: HTMLButtonElement, choice: ThemeChoice): void {
+  const label =
+    choice === 'dark' ? button.dataset.labelLight : button.dataset.labelDark;
+  if (label) {
+    button.setAttribute('aria-label', label);
+  }
+}
 
-  select.value = choice;
+export function initThemeControl(button: HTMLButtonElement): void {
+  const fromDocument = document.documentElement.dataset.theme ?? null;
+  let choice = isThemeChoice(fromDocument) ? fromDocument : readStoredChoice();
 
-  select.addEventListener('change', () => {
-    if (!isThemeChoice(select.value)) {
-      return;
-    }
+  markControl(button, choice);
+
+  button.addEventListener('click', () => {
+    choice = choice === 'dark' ? 'light' : 'dark';
 
     try {
-      localStorage.setItem(storageKey, select.value);
+      localStorage.setItem(storageKey, choice);
     } catch {
       // Private browsing can block storage. The choice still applies for this view.
     }
 
-    applyTheme(select.value);
+    applyTheme(choice);
+    markControl(button, choice);
   });
-
-  window
-    .matchMedia('(prefers-color-scheme: dark)')
-    .addEventListener('change', () => {
-      if (readStoredChoice() === 'system') {
-        applyTheme('system');
-      }
-    });
 }

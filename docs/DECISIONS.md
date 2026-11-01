@@ -210,6 +210,18 @@ Decision: Remove the “Roland Schlösser” link from the header. Home remains 
 Reason: Roland asked for this. The header name repeated the heading on the homepage.
 Phase: 6
 
+### 2026-11-01 — Theme toggle
+
+Decision: Replace the theme dropdown with a light/dark toggle. Remove the system option. A first visit uses light. A stored system choice is resolved once to the appearance already on screen and saved as light or dark.
+Reason: Roland asked for a toggle between light and dark, without a system option.
+Phase: 6
+
+### 2026-11-01 — Sun and moon theme button
+
+Decision: Use one header button for the theme. It shows a sun while the site is light and a moon while the site is dark. Clicking it switches between those two themes.
+Reason: Roland asked for one button that changes between a sun and a moon.
+Phase: 6
+
 ## Future entries
 
 Add the next decision in this format:

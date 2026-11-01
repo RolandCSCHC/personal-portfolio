@@ -103,13 +103,13 @@ Phase 7 completes the sitemap, `robots.txt`, and structured data around the cano
 
 ### Themes
 
-Implemented in Phase 2. Semantic variables in `src/styles/global.css` cover background, surface, primary text, secondary text, accent, and border. Light values live on the document root. Dark values live under `data-theme="dark"`. An explicit light choice overrides a dark system preference. Tailwind utilities reference those variables.
+Implemented in Phase 2. Semantic variables in `src/styles/global.css` cover background, surface, primary text, secondary text, accent, and border. Light values live on the document root. Dark values live under `data-theme="dark"`. Tailwind utilities reference those variables.
 
 Theme selection:
 
-1. A small inline script in the document head reads `localStorage` and, when no choice is stored, `prefers-color-scheme`.
-2. It sets the theme attribute before the page is painted.
-3. The header control updates the attribute and stores the choice.
+1. A small inline script in the document head reads `localStorage`. A missing choice uses light. A stored system choice is resolved once to light or dark and then stored as that choice.
+2. It sets `data-theme` before the page is painted.
+3. The header button updates the attribute and stores light or dark. It shows a sun in light mode and a moon in dark mode.
 
 That script is the client-side JavaScript required to prevent a theme flash. Other interaction, including the mobile navigation, should work without animation and without a framework runtime.
 
@@ -123,7 +123,7 @@ That script is the client-side JavaScript required to prevent a theme flash. Oth
 | Section components              | One homepage region each                                  |
 | Project card and project detail | Presentation only; data comes from the content source     |
 
-The header links to Home, Projects, and Experience. Language and theme are dropdowns. The language dropdown offers English and Español and shows the active language. The theme dropdown offers light, dark, and system, with labels in the active language. The homepage holds the introduction, photograph, CV download, education, and contact. GitHub, LinkedIn, and email are links in the contact section. `/about` and `/es/about` redirect to the matching homepage. `/projects` lists MediaShelf and Relovia. Each detail page shows the supplied screenshot, the confirmed summary and features, the stack, the live application, and the supplied GitHub links. Architecture stays in each project's repository README.
+The header links to Home, Projects, and Experience. Language is a dropdown offering English and Español, and it shows the active language. Theme is one button. It shows a sun in light mode and a moon in dark mode, with an accessible name in the active language. The homepage holds the introduction, photograph, CV download, education, and contact. GitHub, LinkedIn, and email are links in the contact section. `/about` and `/es/about` redirect to the matching homepage. `/projects` lists MediaShelf and Relovia. Each detail page shows the supplied screenshot, the confirmed summary and features, the stack, the live application, and the supplied GitHub links. Architecture stays in each project's repository README.
 
 ### Hosting
 

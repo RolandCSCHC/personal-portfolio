@@ -18,10 +18,8 @@ export const ui = {
     },
   },
   theme: {
-    label: 'Theme',
-    light: 'Light',
-    dark: 'Dark',
-    system: 'System',
+    toLight: 'Switch to light theme',
+    toDark: 'Switch to dark theme',
   },
   hero: {
     title: 'Software Engineer',

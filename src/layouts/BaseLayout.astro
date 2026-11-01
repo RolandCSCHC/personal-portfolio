@@ -60,18 +60,23 @@ const xDefault = absolute(defaultLocale);
       (function () {
         const stored = readStoredTheme();
         const choice =
-          stored === 'light' || stored === 'dark' || stored === 'system'
-            ? stored
-            : 'system';
-        const resolved =
-          choice === 'system'
+          stored === 'system'
             ? window.matchMedia('(prefers-color-scheme: dark)').matches
               ? 'dark'
               : 'light'
-            : choice;
+            : stored === 'dark'
+              ? 'dark'
+              : 'light';
 
-        document.documentElement.dataset.theme = resolved;
-        document.documentElement.dataset.themeChoice = choice;
+        if (stored === 'system') {
+          try {
+            localStorage.setItem('theme', choice);
+          } catch {
+            // Private browsing can block storage. The resolved choice still applies.
+          }
+        }
+
+        document.documentElement.dataset.theme = choice;
 
         function readStoredTheme() {
           try {
