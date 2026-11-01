@@ -110,4 +110,9 @@ export const ui = {
   sharing: {
     imageAlt: 'Roland Schlösser, ingeniero de software',
   },
+  meta: {
+    home: 'Ingeniero de software que trabaja en desarrollo full stack, arquitectura de software y tecnologías en la nube. Enseñó programación en la Universidad de los Andes.',
+    projects:
+      'MediaShelf organiza películas y series. Relovia organiza mudanzas, documentos, tareas, gastos y la logística del traslado.',
+  },
 } satisfies Ui;

@@ -14,16 +14,11 @@ interface Props {
 const { locale } = Astro.props;
 const profile = getProfile(locale);
 const projects = await loadProjectViews(locale);
-const description = projects.map((project) => project.summary).join(' ');
-
-if (description.trim() === '') {
-  throw new Error('The projects page is missing its description.');
-}
 ---
 
 <BaseLayout
   title={pageTitle(profile.projects.title)}
-  description={description}
+  description={profile.meta.projects}
   locale={locale}
 >
   <Section id="projects" title={profile.projects.title} page>

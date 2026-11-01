@@ -110,4 +110,9 @@ export const ui = {
   sharing: {
     imageAlt: 'Roland Schlösser, Software Engineer',
   },
+  meta: {
+    home: 'Software engineer working on full-stack development, software architecture, and cloud technologies. Taught programming at Universidad de los Andes.',
+    projects:
+      'MediaShelf organizes movies and television series. Relovia organizes relocations, documents, tasks, expenses, and moving logistics.',
+  },
 } satisfies Ui;

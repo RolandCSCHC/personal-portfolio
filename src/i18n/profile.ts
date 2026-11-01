@@ -150,6 +150,7 @@ export function getProfile(locale: Locale) {
       links: [github, linkedin, email],
     },
     cv: ui.cv,
+    meta: ui.meta,
     github,
     linkedin,
   };

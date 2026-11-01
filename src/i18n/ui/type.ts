@@ -86,4 +86,8 @@ export type Ui = {
   sharing: {
     imageAlt: string;
   };
+  meta: {
+    home: string;
+    projects: string;
+  };
 };
