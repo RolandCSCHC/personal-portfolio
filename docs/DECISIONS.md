@@ -45,7 +45,7 @@ Record confirmed choices here. Proposed values stay in the “Awaiting approval�
 - **GitHub.** The public repository is `RolandCSCHC/personal-portfolio`. The production branch is `main`.
 - **Vercel.** Vercel builds the static site from that repository.
 - **Cloudflare DNS.** Cloudflare serves `rolandschlosser.dev`. Existing MediaShelf and Relovia records stay in place.
-- **Domain.** The public site is `https://rolandschlosser.dev`. The domain is not connected yet.
+- **Domain.** The public site is `https://rolandschlosser.dev`. `www.rolandschlosser.dev` redirects to that host.
 
 ### Delivery
 
@@ -233,6 +233,18 @@ Phase: 7
 Decision: Keep the supplied MediaShelf and Relovia JPEGs as the source files in `src/assets/projects/`. The build emits responsive AVIF, WebP, and JPEG variants. The content record stores the file name and the source width and height.
 Reason: Phase 7 asks for a review of image size. A single 1600-pixel JPEG is larger than a phone needs. The source images are still the files Roland supplied.
 Phase: 7
+
+### 2026-11-01 — Production deployment
+
+Decision: Publish the site at `https://rolandschlosser.dev`. Vercel builds `main` with `pnpm install` and `pnpm build`, and the Astro preset publishes `dist`. Cloudflare DNS points the apex at the Vercel CNAME `c39f292135bde568.vercel-dns-017.com` with the proxy disabled. `www.rolandschlosser.dev` redirects to the apex. The MediaShelf and Relovia records stay unchanged. No environment variables are used.
+Reason: Phase 8. Roland connected the Vercel project and the Cloudflare records on this date.
+Phase: 8
+
+### 2026-11-01 — CV link target
+
+Decision: The homepage and the CV page open the PDF in a new tab. The link keeps the existing “opens in a new tab” text for screen readers.
+Reason: Roland asked for the CV to open in a different tab.
+Phase: 8
 
 ## Future entries
 

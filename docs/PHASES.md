@@ -634,7 +634,7 @@ Verified on 1 November 2026. `pnpm check`, `pnpm lint`, `pnpm format:check`, and
 
 ## Phase 8 — Production deployment and launch
 
-**Status:** Not started  
+**Status:** Completed  
 **Depends on:** Phase 7
 
 ### Objective
@@ -645,48 +645,48 @@ Publish the site at [https://rolandschlosser.dev](https://rolandschlosser.dev) w
 
 #### GitHub
 
-- [ ] Confirm the repository is public and `main` is the production branch.
-- [ ] Confirm the README and history are suitable for a public project.
-- [ ] Confirm no secrets or environment files are committed.
+- [x] Confirm the repository is public and `main` is the production branch.
+- [x] Confirm the README and history are suitable for a public project.
+- [x] Confirm no secrets or environment files are committed.
 
 #### Vercel
 
-- [ ] Import the GitHub repository.
-- [ ] Use `main` as the production branch.
-- [ ] Use `pnpm install`, `pnpm build`, and `dist`.
-- [ ] Use Node.js 24.
-- [ ] Enable production deployments from `main` and preview deployments for other branches or pull requests.
-- [ ] Confirm a production build on the Vercel URL before attaching the domain.
+- [x] Import the GitHub repository.
+- [x] Use `main` as the production branch.
+- [x] Use `pnpm install`, `pnpm build`, and `dist`.
+- [x] Use Node.js 24.
+- [x] Enable production deployments from `main` and preview deployments for other branches or pull requests.
+- [x] Confirm a production build on the Vercel URL before attaching the domain.
 
 #### Cloudflare DNS
 
-- [ ] Follow Vercel’s current instructions for `rolandschlosser.dev`.
-- [ ] Add only the records that domain requires.
-- [ ] Leave the MediaShelf and Relovia records unchanged.
-- [ ] Confirm DNS propagation and HTTPS.
-- [ ] Do not edit unrelated records.
+- [x] Follow Vercel’s current instructions for `rolandschlosser.dev`.
+- [x] Add only the records that domain requires.
+- [x] Leave the MediaShelf and Relovia records unchanged.
+- [x] Confirm DNS propagation and HTTPS.
+- [x] Do not edit unrelated records.
 
 #### Domain checks
 
-- [ ] `https://rolandschlosser.dev` loads the portfolio.
-- [ ] Verify that `www.rolandschlosser.dev` redirects to `https://rolandschlosser.dev`.
-- [ ] Confirm the certificate, the absence of mixed content, and the main routes.
+- [x] `https://rolandschlosser.dev` loads the portfolio.
+- [x] Verify that `www.rolandschlosser.dev` redirects to `https://rolandschlosser.dev`.
+- [x] Confirm the certificate, the absence of mixed content, and the main routes.
 
 #### Launch checks
 
-- [ ] Homepage, project pages, and CV pages.
-- [ ] English and Spanish.
-- [ ] Language switcher and theme switcher.
-- [ ] CV downloads and photograph.
-- [ ] GitHub, LinkedIn, and email links.
-- [ ] Mobile navigation.
-- [ ] Metadata, sitemap, and `robots.txt`.
-- [ ] `mediashelf.rolandschlosser.dev` and `relovia.rolandschlosser.dev` still respond.
+- [x] Homepage, project pages, and CV pages.
+- [x] English and Spanish.
+- [x] Language switcher and theme switcher.
+- [x] CV downloads and photograph.
+- [x] GitHub, LinkedIn, and email links.
+- [x] Mobile navigation.
+- [x] Metadata, sitemap, and `robots.txt`.
+- [x] `mediashelf.rolandschlosser.dev` and `relovia.rolandschlosser.dev` still respond.
 
 #### After launch
 
-- [ ] Update the README with the live URL.
-- [ ] Record the deployment in [DECISIONS.md](DECISIONS.md).
+- [x] Update the README with the live URL.
+- [x] Record the deployment in [DECISIONS.md](DECISIONS.md).
 
 ### Technical requirements
 
@@ -707,9 +707,11 @@ Do not republish or reconfigure MediaShelf or Relovia. Do not force-push. Do not
 
 ### Acceptance criteria
 
-- [ ] The website is publicly accessible.
-- [ ] HTTPS is valid.
-- [ ] The Vercel production deployment succeeds.
-- [ ] Cloudflare DNS serves the portfolio domain.
-- [ ] MediaShelf and Relovia remain available.
-- [ ] The launch checks above pass.
+- [x] The website is publicly accessible.
+- [x] HTTPS is valid.
+- [x] The Vercel production deployment succeeds.
+- [x] Cloudflare DNS serves the portfolio domain.
+- [x] MediaShelf and Relovia remain available.
+- [x] The launch checks above pass.
+
+Verified on 1 November 2026. Roland published `main` on Vercel and attached `https://rolandschlosser.dev` through Cloudflare. The apex uses the Vercel CNAME with the proxy disabled, and `www.rolandschlosser.dev` redirects to the apex. MediaShelf and Relovia records were left unchanged. The README points at the live site, and the deployment is recorded in `docs/DECISIONS.md`. Roland confirmed the production site, HTTPS, and the launch checks.

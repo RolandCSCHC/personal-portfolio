@@ -59,7 +59,7 @@ Principles: timeless presentation, clear typography, generous whitespace, neutra
 | 5     | Internationalization                      | Phases 3 and 4                                 | Completed   |
 | 6     | Personal assets and CV                    | Phases 3 and 5 for the pages that display them | Completed   |
 | 7     | SEO, accessibility, and quality assurance | Phases 2–6                                     | Completed   |
-| 8     | Production deployment and launch          | Phase 7                                        | Not started |
+| 8     | Production deployment and launch          | Phase 7                                        | Completed   |
 
 Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those assets are supplied by Roland. Until they arrive, the implementation uses a clearly labeled placeholder and does not invent a photograph or a CV.
 
@@ -72,7 +72,7 @@ Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those
 - [x] Phase 5 — Internationalization
 - [x] Phase 6 — Personal assets and CV
 - [x] Phase 7 — SEO, accessibility, and quality assurance
-- [ ] Phase 8 — Production deployment and launch
+- [x] Phase 8 — Production deployment and launch
 
 ## Phase summaries
 
@@ -106,7 +106,7 @@ Completed on 1 November 2026. Pages have unique titles and descriptions, canonic
 
 ### Phase 8 — Production deployment and launch
 
-Connect the GitHub repository to Vercel, attach `rolandschlosser.dev` through Cloudflare without changing the MediaShelf or Relovia DNS records, and verify the live site.
+Completed on 1 November 2026. Vercel publishes `main` at [https://rolandschlosser.dev](https://rolandschlosser.dev). Cloudflare points the apex at Vercel, `www.rolandschlosser.dev` redirects to that host, and the MediaShelf and Relovia records were left unchanged. Roland confirmed the live site.
 
 ## Open items
 

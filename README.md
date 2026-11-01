@@ -70,16 +70,11 @@ pnpm preview
 
 ## Deployment
 
-The site is a static Astro project (`output: 'static'`) and does not use a server adapter. Vercel detects Astro from the repository.
+The live site is [https://rolandschlosser.dev](https://rolandschlosser.dev). `https://www.rolandschlosser.dev` redirects there.
 
-Planned deployment:
+The site is a static Astro project (`output: 'static'`) and does not use a server adapter. Vercel builds `main` from this repository with the Astro preset. The install command is `pnpm install`, the build command is `pnpm build`, and Astro writes the site to `dist`. The Node.js version comes from `.node-version` (24.21.0). No environment variables are required.
 
-1. Import `RolandCSCHC/personal-portfolio` into a Vercel project.
-2. Leave the framework preset as Astro. The install command is `pnpm install`, the build command is `pnpm build`, and the output directory is `dist`.
-3. Use the Node.js version from `.node-version` (24.21.0).
-4. Deploy to the Vercel-generated URL first.
-
-No environment variables are required. The production domain and Cloudflare DNS records are not configured in this phase.
+Cloudflare DNS points the apex at Vercel. The MediaShelf and Relovia records are unchanged.
 
 `vercel.json` sets `trailingSlash` to `false`, matching the Astro `trailingSlash: 'never'` policy.
 
