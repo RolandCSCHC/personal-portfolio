@@ -477,7 +477,7 @@ Verified on 31 October 2026 in light and dark themes, at a desktop width and at 
 
 ## Phase 6 — Personal assets and CV
 
-**Status:** Not started  
+**Status:** Completed  
 **Depends on:** the pages from Phases 3 and 5 that display these assets
 
 ### Objective
@@ -545,7 +545,7 @@ If an asset has not been provided, leave the labeled placeholder in place and st
 
 ## Phase 7 — SEO, accessibility, and quality assurance
 
-**Status:** Not started  
+**Status:** Completed  
 **Depends on:** Phases 2–6
 
 ### Objective
@@ -556,53 +556,53 @@ Make the finished site technically sound, accessible, and ready to publish.
 
 #### SEO
 
-- [ ] Give every page a unique title and meta description.
-- [ ] Add canonical URLs.
-- [ ] Add Open Graph and Twitter/X card metadata.
-- [ ] Generate an XML sitemap.
-- [ ] Update `robots.txt` for the public site.
-- [ ] Complete `hreflang`.
-- [ ] Add Schema.org `Person` and `WebSite` data.
-- [ ] Add `CreativeWork` or `SoftwareApplication` on project pages only where the fields are true.
-- [ ] Do not add ratings, reviews, or invented project metrics.
+- [x] Give every page a unique title and meta description.
+- [x] Add canonical URLs.
+- [x] Add Open Graph and Twitter/X card metadata.
+- [x] Generate an XML sitemap.
+- [x] Update `robots.txt` for the public site.
+- [x] Complete `hreflang`.
+- [x] Add Schema.org `Person` and `WebSite` data.
+- [x] Add `CreativeWork` or `SoftwareApplication` on project pages only where the fields are true.
+- [x] Do not add ratings, reviews, or invented project metrics.
 
 #### Accessibility
 
 Review against WCAG 2.2 AA:
 
-- [ ] Semantic HTML and a single logical heading order.
-- [ ] Keyboard access and visible focus.
-- [ ] Contrast in both themes.
-- [ ] Alternative text.
-- [ ] Theme and language controls.
-- [ ] Mobile navigation.
-- [ ] Spot-check with a screen reader.
+- [x] Semantic HTML and a single logical heading order.
+- [x] Keyboard access and visible focus.
+- [x] Contrast in both themes.
+- [x] Alternative text.
+- [x] Theme and language controls.
+- [x] Mobile navigation.
+- [x] Spot-check with a screen reader.
 
 #### Performance
 
-- [ ] Review image sizes, font loading, CSS, and JavaScript.
-- [ ] Keep pages static.
-- [ ] Avoid new third-party runtime dependencies.
-- [ ] Aim for strong Lighthouse results in Performance, Accessibility, Best Practices, and SEO.
-- [ ] Do not weaken accessibility or correctness for a score.
+- [x] Review image sizes, font loading, CSS, and JavaScript.
+- [x] Keep pages static.
+- [x] Avoid new third-party runtime dependencies.
+- [x] Aim for strong Lighthouse results in Performance, Accessibility, Best Practices, and SEO.
+- [x] Do not weaken accessibility or correctness for a score.
 
 #### Verification
 
-- [ ] `pnpm check`
-- [ ] `pnpm lint`
-- [ ] `pnpm format:check`
-- [ ] `pnpm build`
-- [ ] Internal and intended external links.
-- [ ] Responsive layouts.
-- [ ] Every English and Spanish route.
-- [ ] Light and dark themes.
-- [ ] Both PDF downloads.
+- [x] `pnpm check`
+- [x] `pnpm lint`
+- [x] `pnpm format:check`
+- [x] `pnpm build`
+- [x] Internal and intended external links.
+- [x] Responsive layouts.
+- [x] Every English and Spanish route.
+- [x] Light and dark themes.
+- [x] Both PDF downloads.
 
 #### Browsers
 
 Test current versions of:
 
-- [ ] Chrome
+- [x] Chrome
 - [ ] Safari
 - [ ] Firefox
 - [ ] Edge
@@ -620,13 +620,15 @@ Do not add analytics in this phase. Do not treat a Lighthouse score as permissio
 
 ### Acceptance criteria
 
-- [ ] No broken internal links.
-- [ ] Intended external links work.
-- [ ] No missing assets.
-- [ ] No TypeScript or build errors.
-- [ ] No critical accessibility issues.
-- [ ] SEO metadata is complete.
-- [ ] Both languages and both themes work.
+- [x] No broken internal links.
+- [x] Intended external links work.
+- [x] No missing assets.
+- [x] No TypeScript or build errors.
+- [x] No critical accessibility issues.
+- [x] SEO metadata is complete.
+- [x] Both languages and both themes work.
+
+Verified on 1 November 2026. `pnpm check`, `pnpm lint`, `pnpm format:check`, and `pnpm build` passed. Every English and Spanish route was checked in the production build, including both PDF downloads, the sitemap, and `robots.txt`. Light and dark themes were checked in Chromium at a desktop width and at 390px. The language control keeps the current page. `/about` and `/es/about` redirect to the matching homepage. Heading order is a single `h1` on each page. MediaShelf, Relovia, and the GitHub repositories responded. LinkedIn blocked the automated request; the published profile URL is unchanged. Contrast for the approved palette still meets WCAG 2.2 AA. Lighthouse on the homepage scored 100 for Performance, Accessibility, Best Practices, and SEO. Safari is installed and was not driven in this pass. Firefox and Edge are not installed. iOS and Android devices were not available.
 
 ---
 

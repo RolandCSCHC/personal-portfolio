@@ -222,6 +222,18 @@ Decision: Use one header button for the theme. It shows a sun while the site is 
 Reason: Roland asked for one button that changes between a sun and a moon.
 Phase: 6
 
+### 2026-11-01 — SEO and structured data
+
+Decision: Generate `/sitemap.xml` from the public routes, with `hreflang` alternates for `en`, `es`, and `x-default`. Generate `robots.txt` so every crawler may fetch the public site and the sitemap URL is the production origin. Emit Schema.org `Person`, `WebSite`, and `WebPage` on every page, and `SoftwareApplication` on a project page. Use only supplied facts: name, role, description, email, GitHub, LinkedIn, current employer, education, skills, and the confirmed project summary, features, live URL, repositories, and screenshot. Do not add ratings, reviews, offers, or metrics. Keep `hreflang` as `en` and `es`. Keep the Open Graph locales `en_US` and `es_CL`.
+Reason: Phase 7. The production origin was already approved.
+Phase: 7
+
+### 2026-11-01 — Project screenshot delivery
+
+Decision: Keep the supplied MediaShelf and Relovia JPEGs as the source files in `src/assets/projects/`. The build emits responsive AVIF, WebP, and JPEG variants. The content record stores the file name and the source width and height.
+Reason: Phase 7 asks for a review of image size. A single 1600-pixel JPEG is larger than a phone needs. The source images are still the files Roland supplied.
+Phase: 7
+
 ## Future entries
 
 Add the next decision in this format:

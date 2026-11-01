@@ -57,8 +57,8 @@ Principles: timeless presentation, clear typography, generous whitespace, neutra
 | 3     | Homepage and professional profile         | Phase 2                                        | Completed   |
 | 4     | Personal projects showcase                | Phases 2 and 3                                 | Completed   |
 | 5     | Internationalization                      | Phases 3 and 4                                 | Completed   |
-| 6     | Personal assets and CV                    | Phases 3 and 5 for the pages that display them | Not started |
-| 7     | SEO, accessibility, and quality assurance | Phases 2–6                                     | Not started |
+| 6     | Personal assets and CV                    | Phases 3 and 5 for the pages that display them | Completed   |
+| 7     | SEO, accessibility, and quality assurance | Phases 2–6                                     | Completed   |
 | 8     | Production deployment and launch          | Phase 7                                        | Not started |
 
 Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those assets are supplied by Roland. Until they arrive, the implementation uses a clearly labeled placeholder and does not invent a photograph or a CV.
@@ -70,8 +70,8 @@ Phases 3 and 6 share the photograph, and Phases 5 and 6 share the CV page. Those
 - [x] Phase 3 — Homepage and professional profile
 - [x] Phase 4 — Personal projects showcase
 - [x] Phase 5 — Internationalization
-- [ ] Phase 6 — Personal assets and CV
-- [ ] Phase 7 — SEO, accessibility, and quality assurance
+- [x] Phase 6 — Personal assets and CV
+- [x] Phase 7 — SEO, accessibility, and quality assurance
 - [ ] Phase 8 — Production deployment and launch
 
 ## Phase summaries
@@ -98,11 +98,11 @@ Completed on 31 October 2026. Every public page exists in English and Spanish. S
 
 ### Phase 6 — Personal assets and CV
 
-Add the supplied photograph, the English and Spanish CV files, the final favicon, and the Open Graph image. Do not generate substitutes. The photograph, both CV files, the favicon, and the 1200×630 sharing image are in place.
+Completed on 1 November 2026. The supplied photograph, both CV files, the RS favicon, and the 1200×630 sharing image are published.
 
 ### Phase 7 — SEO, accessibility, and quality assurance
 
-Complete metadata, sitemap, structured data, WCAG 2.2 AA checks, performance work, and cross-browser verification.
+Completed on 1 November 2026. Pages have unique titles and descriptions, canonical URLs, Open Graph and Twitter cards, `hreflang`, a sitemap, and `robots.txt`. Structured data is limited to supplied facts. The pass used Chromium at desktop width and at 390px, in both themes and both languages. Lighthouse on the homepage scored 100 in Performance, Accessibility, Best Practices, and SEO. Safari, Firefox, Edge, iOS, and Android were not part of this pass.
 
 ### Phase 8 — Production deployment and launch
 

@@ -25,7 +25,9 @@ TypeScript 7 is not used because `@astrojs/check` accepts TypeScript 5 or 6. `@l
 
 ```text
 src/
-├── assets/profile/    Professional photograph, when supplied
+├── assets/
+│   ├── profile/       Professional photograph
+│   └── projects/      Supplied project screenshots
 ├── components/
 │   ├── layout/          Header, footer, language control, theme control
 │   ├── pages/           Shared page views used by both locales
@@ -50,15 +52,16 @@ src/
 │   ├── experience.astro
 │   ├── cv.astro
 │   ├── projects/
-│   └── es/              Spanish routes for the same pages
+│   ├── es/              Spanish routes for the same pages
+│   ├── sitemap.xml.ts
+│   └── robots.txt.ts
 ├── scripts/theme.ts
+├── seo/                 Canonical URLs and Schema.org JSON-LD
 └── styles/              global.css and fonts.css
 public/
 ├── cv/                  Supplied PDF files
 ├── favicon.svg
-├── images/projects/
-├── og.png
-└── robots.txt
+└── og.png
 ```
 
 `src/i18n/locales.ts` exports `en` and `es`, with `en` as the default. The same codes are set in `astro.config.mjs`. English routes have no prefix. Spanish pages live in `src/pages/es/`.
@@ -67,15 +70,17 @@ public/
 
 The language control offers English and Español. It links to the same page in the other language, keeps the current fragment, and falls back to that language’s homepage when the page does not exist. The selected option shows the active language. The control is a native select, so it works from the keyboard.
 
-MediaShelf and Relovia live in the `projects` content collection defined in `src/content.config.ts`. Each record holds the name, summary, confirmed features, stack, live URL, repository links, screenshot, and display order. Summary, features, image alternative text, and repository labels are stored once per record in both languages. The collection rejects a record that is missing either language or has feature lists of different lengths. Each screenshot is a 1600-pixel-wide JPEG in `public/images/projects/`, with width and height. Repository links are a list, so Relovia can publish both its backend and frontend repositories. `loadProjects()` is the only read path. `presentProject()` selects one locale. `/projects`, the project detail pages, and their Spanish routes use it. The homepage does not list the projects.
+MediaShelf and Relovia live in the `projects` content collection defined in `src/content.config.ts`. Each record holds the name, summary, confirmed features, stack, live URL, repository links, screenshot, and display order. Summary, features, image alternative text, and repository labels are stored once per record in both languages. The collection rejects a record that is missing either language or has feature lists of different lengths. Each screenshot is a supplied JPEG in `src/assets/projects/`. The content record stores the file name, width, and height, and the build rejects a file whose dimensions do not match. The page emits responsive AVIF, WebP, and JPEG variants. Repository links are a list, so Relovia can publish both its backend and frontend repositories. `loadProjects()` is the only read path. `presentProject()` selects one locale. `/projects`, the project detail pages, and their Spanish routes use it. The homepage does not list the projects.
 
-`BaseLayout` emits the localized title and description, a canonical URL, `hreflang` alternates for `en`, `es`, and `x-default`, and Open Graph title, description, URL, type, image, and locale. English Open Graph locale is `en_US`. Spanish is `es_CL`. The sharing image is `public/og.png`, 1200×630, and each page references it with a localized alternative text.
+`BaseLayout` emits the localized title and description, a canonical URL, `hreflang` alternates for `en`, `es`, and `x-default`, Open Graph and Twitter card metadata, and Schema.org JSON-LD. English Open Graph locale is `en_US`. Spanish is `es_CL`. The sharing image is `public/og.png`, 1200×630, and each page references it with a localized alternative text. The JSON-LD graph is `WebSite`, `Person`, and `WebPage` on every page. A project page also includes `SoftwareApplication`, using the confirmed name, summary, features, live URL, repositories, and screenshot. It does not include ratings, reviews, offers, or metrics.
+
+`/sitemap.xml` lists the public routes in both languages and repeats the same `hreflang` alternates. `/robots.txt` allows all crawlers and points at that sitemap on the production origin. Redirect pages for `/about` and `/es/about` are `noindex`.
 
 `src/styles/global.css` defines the approved light and dark palettes as semantic variables. Tailwind utilities reference those variables. Inter and JetBrains Mono are self-hosted from their Latin variable files. The content column is 70rem (1120px). Prose is limited to 45rem (720px). Below 64rem the header stacks; from 64rem upward it is a horizontal row.
 
 `trailingSlash` is `never`. Public URLs are `/`, `/experience`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash. `/about` redirects to `/`, and `/es/about` redirects to `/es`. The homepage canonical URL keeps the root slash: `https://rolandschlosser.dev/`.
 
-`robots.txt` allows all crawlers. It is not yet a launch configuration. The favicon is an RS monogram in Inter, using the light background and primary text color.
+The favicon is an RS monogram in Inter, using the light background and primary text color.
 
 Vercel can build the repository as a static Astro project. The production domain is not configured, and Cloudflare DNS has not been changed.
 
@@ -98,8 +103,6 @@ Implemented in Phase 5. Astro’s built-in i18n routing stays in place:
 - `defaultLocale`: `en`
 - `locales`: `en`, `es`
 - `prefixDefaultLocale`: `false`
-
-Phase 7 completes the sitemap, `robots.txt`, and structured data around the canonical URLs and `hreflang` links already emitted by `BaseLayout`.
 
 ### Themes
 

@@ -97,8 +97,7 @@ personal-portfolio/
 ├── public/
 │   ├── cv/
 │   ├── favicon.svg
-│   ├── og.png
-│   └── robots.txt
+│   └── og.png
 ├── docs/
 ├── src/
 │   ├── components/
@@ -108,7 +107,8 @@ personal-portfolio/
 │   │   ├── sections/
 │   │   └── PublicLink.astro
 │   ├── assets/
-│   │   └── profile/
+│   │   ├── profile/
+│   │   └── projects/
 │   ├── content/
 │   │   └── projects/
 │   ├── content.config.ts
@@ -129,7 +129,10 @@ personal-portfolio/
 │   │   ├── experience.astro
 │   │   ├── cv.astro
 │   │   ├── projects/
-│   │   └── es/
+│   │   ├── es/
+│   │   ├── sitemap.xml.ts
+│   │   └── robots.txt.ts
+│   ├── seo/
 │   ├── scripts/
 │   │   └── theme.ts
 │   └── styles/
@@ -153,7 +156,7 @@ personal-portfolio/
 Directories below are part of the intended layout and are created when they first receive files:
 
 - `src/assets/profile/roland-schlosser.jpg` for the professional photograph. `.jpeg`, `.png`, and `.webp` are also accepted with the same base name. Keep one file. Astro builds a responsive image from it.
-- `public/images/projects/` for project screenshots. The current files are `mediashelf.jpg` and `relovia.jpg`.
+- `src/assets/projects/` for project screenshots. The current files are `mediashelf.jpg` and `relovia.jpg`. The build emits responsive images from them.
 - `public/cv/roland-schlosser-cv-en.pdf` for the English CV.
 - `public/cv/roland-schlosser-cv-es.pdf` for the Spanish CV.
 
