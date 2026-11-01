@@ -1,19 +1,29 @@
 ---
+import { Picture } from 'astro:assets';
+import type { ProjectView } from '../../data/projects';
+
 interface Props {
-  image: { src: string; alt: string; width: number; height: number } | null;
+  image: ProjectView['image'];
   unpublished: string;
+  sizes: string;
+  priority?: boolean;
 }
 
-const { image, unpublished } = Astro.props;
+const { image, unpublished, sizes, priority = false } = Astro.props;
 ---
 
 {image ? (
-  <img
-    class="w-full border border-border"
+  <Picture
     src={image.src}
     alt={image.alt}
-    width={image.width}
-    height={image.height}
+    widths={[640, 960, 1280, 1600]}
+    sizes={sizes}
+    formats={['avif', 'webp']}
+    fallbackFormat="jpeg"
+    quality={80}
+    priority={priority}
+    class="h-auto w-full border border-border"
+    pictureAttributes={{ class: 'block w-full' }}
   />
 ) : (
   <div class="flex aspect-video items-center justify-center border border-border bg-surface p-6 text-center">

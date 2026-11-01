@@ -9,9 +9,10 @@ interface Props {
   project: ProjectView;
   labels: ProjectCopy;
   heading: 'h2' | 'h3';
+  priority?: boolean;
 }
 
-const { project, labels, heading } = Astro.props;
+const { project, labels, heading, priority = false } = Astro.props;
 const Heading = heading;
 const { name, summary, stack, liveUrl, repositories, image, href } = project;
 ---
@@ -19,7 +20,12 @@ const { name, summary, stack, liveUrl, repositories, image, href } = project;
 <article class="flex h-full flex-col border border-border bg-surface p-6">
   {image && (
     <div class="mb-6">
-      <ProjectMedia image={image} unpublished={labels.screenshotUnpublished} />
+      <ProjectMedia
+        image={image}
+        unpublished={labels.screenshotUnpublished}
+        sizes="(min-width: 70rem) 32rem, (min-width: 64rem) 29rem, calc(100vw - 2.5rem)"
+        priority={priority}
+      />
     </div>
   )}
   <Heading>

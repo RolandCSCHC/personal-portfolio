@@ -28,7 +28,7 @@
     }
   ],
   "image": {
-    "src": "/images/projects/mediashelf.jpg",
+    "src": "mediashelf.jpg",
     "alt": {
       "en": "MediaShelf private library named ROLAND's shelf, showing a grid of movie posters.",
       "es": "Biblioteca privada de MediaShelf llamada ROLAND's shelf, con una cuadrícula de pósters de películas."

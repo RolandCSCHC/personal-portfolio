@@ -35,7 +35,12 @@ const projects = defineCollection({
     ),
     image: z
       .object({
-        src: z.string().min(1),
+        src: z
+          .string()
+          .regex(
+            /^[a-z0-9-]+\.(jpg|jpeg|png|webp)$/,
+            'Use the file name from src/assets/projects/.',
+          ),
         alt: localizedText,
         width: z.number().int().positive(),
         height: z.number().int().positive(),

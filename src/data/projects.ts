@@ -1,6 +1,8 @@
+import type { ImageMetadata } from 'astro';
 import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Locale } from '../i18n/locales';
 import { localeHref } from '../i18n/routes';
+import { projectImage } from './project-images';
 
 export type ProjectView = {
   id: string;
@@ -11,13 +13,33 @@ export type ProjectView = {
   liveUrl: string;
   repositories: { label: string; url: string }[];
   image: {
-    src: string;
+    src: ImageMetadata;
     alt: string;
     width: number;
     height: number;
   } | null;
   href: string;
 };
+
+function presentImage(
+  image: NonNullable<CollectionEntry<'projects'>['data']['image']>,
+  locale: Locale,
+): NonNullable<ProjectView['image']> {
+  const file = projectImage(image.src);
+
+  if (file.width !== image.width || file.height !== image.height) {
+    throw new Error(
+      `${image.src} is ${file.width}×${file.height}, but the content record says ${image.width}×${image.height}.`,
+    );
+  }
+
+  return {
+    src: file,
+    alt: image.alt[locale],
+    width: file.width,
+    height: file.height,
+  };
+}
 
 export async function loadProjects(): Promise<CollectionEntry<'projects'>[]> {
   const projects = await getCollection('projects');
@@ -40,14 +62,7 @@ export function presentProject(
       label: repository.label[locale],
       url: repository.url,
     })),
-    image: data.image
-      ? {
-          src: data.image.src,
-          alt: data.image.alt[locale],
-          width: data.image.width,
-          height: data.image.height,
-        }
-      : null,
+    image: data.image ? presentImage(data.image, locale) : null,
     href: localeHref(locale, `projects/${project.id}`),
   };
 }
