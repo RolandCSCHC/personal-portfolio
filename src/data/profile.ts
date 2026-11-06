@@ -146,7 +146,7 @@ export const skillFacts: readonly {
 }[] = [
   {
     id: 'languages',
-    items: ['Python', 'TypeScript', 'JavaScript', 'C#'],
+    items: ['Python', 'TypeScript', 'JavaScript', 'C#', 'C++'],
   },
   {
     id: 'backend',

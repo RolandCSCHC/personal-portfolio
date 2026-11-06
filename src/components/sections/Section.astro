@@ -17,6 +17,7 @@ const Heading = page ? 'h1' : 'h2';
 >
   <div class="page-container py-16 md:py-20">
     <Heading id={headingId}>{title}</Heading>
+    <span class="mt-3 block h-0.5 w-10 bg-accent" aria-hidden="true"></span>
     <div class="mt-6">
       <slot />
     </div>
