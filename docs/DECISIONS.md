@@ -246,6 +246,12 @@ Decision: The homepage and the CV page open the PDF in a new tab. The link keeps
 Reason: Roland asked for the CV to open in a different tab.
 Phase: 8
 
+### 2026-11-06 — Profile photograph as the favicon
+
+Decision: Replace the RS monogram with a square crop of the supplied photograph. Publish `public/favicon.png`, `public/favicon.ico`, and `public/apple-touch-icon.png`.
+Reason: Roland asked for the profile picture to be the browser icon.
+Phase: After launch
+
 ## Future entries
 
 Add the next decision in this format:

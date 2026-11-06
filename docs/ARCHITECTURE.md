@@ -60,7 +60,9 @@ src/
 └── styles/              global.css and fonts.css
 public/
 ├── cv/                  Supplied PDF files
-├── favicon.svg
+├── apple-touch-icon.png
+├── favicon.ico
+├── favicon.png
 └── og.png
 ```
 
@@ -80,7 +82,7 @@ MediaShelf and Relovia live in the `projects` content collection defined in `src
 
 `trailingSlash` is `never`. Public URLs are `/`, `/experience`, `/projects`, `/projects/mediashelf`, `/projects/relovia`, `/cv`, and the Spanish paths under `/es` without a trailing slash. `/about` redirects to `/`, and `/es/about` redirects to `/es`. The homepage canonical URL keeps the root slash: `https://rolandschlosser.dev/`.
 
-The favicon is an RS monogram in Inter, using the light background and primary text color.
+The favicon is a square crop of the supplied photograph, published as `favicon.png`, `favicon.ico`, and `apple-touch-icon.png`.
 
 Vercel can build the repository as a static Astro project. The production domain is not configured, and Cloudflare DNS has not been changed.
 

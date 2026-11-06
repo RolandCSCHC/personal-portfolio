@@ -122,7 +122,9 @@ const jsonLd = await buildJsonLd({
       .map((code) => (
         <meta property="og:locale:alternate" content={openGraphLocale[code]} />
       ))}
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" sizes="any" />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <script is:inline type="application/ld+json" set:html={jsonLd} />

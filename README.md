@@ -91,7 +91,9 @@ Cloudflare DNS points the apex at Vercel. The MediaShelf and Relovia records are
 personal-portfolio/
 ├── public/
 │   ├── cv/
-│   ├── favicon.svg
+│   ├── apple-touch-icon.png
+│   ├── favicon.ico
+│   ├── favicon.png
 │   └── og.png
 ├── docs/
 ├── src/
