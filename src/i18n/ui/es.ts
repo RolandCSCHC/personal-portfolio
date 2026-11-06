@@ -26,7 +26,7 @@ export const ui = {
     introduction: 'Hola, soy Roland Schlösser.',
     paragraphs: [
       'Soy ingeniero de software y trabajo en desarrollo full stack. Me interesan la arquitectura de software, las tecnologías en la nube y la creación de productos de software útiles.',
-      'Enseñé programación en la Universidad de los Andes, donde orienté a los estudiantes y apoyé la coordinación de los cursos.',
+      'Enseñé en la Universidad de los Andes, donde orienté a los estudiantes y apoyé la coordinación de los cursos. Las asignaturas fueron Programación, Programación orientada a objetos, Tecnologías web, Pensamiento algorítmico aplicado, Diseño de software y Python y bases de datos.',
     ],
     photograph: 'Fotografía aún no publicada',
     photographAlt: 'Retrato de Roland Schlösser',

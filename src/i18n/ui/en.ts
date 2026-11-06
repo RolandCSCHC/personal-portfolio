@@ -26,7 +26,7 @@ export const ui = {
     introduction: "Hi, I'm Roland Schlösser.",
     paragraphs: [
       'I am a software engineer working on full-stack development. I am interested in software architecture, cloud technologies, and building useful software products.',
-      'I taught programming at Universidad de los Andes, where I mentored students and supported course coordination.',
+      'I taught at Universidad de los Andes, where I mentored students and supported course coordination. The courses were Programming, Object-Oriented Programming, Web Technologies, Applied Algorithmic Thinking, Software Design, and Python and Databases.',
     ],
     photograph: 'Photograph not published yet',
     photographAlt: 'Portrait of Roland Schlösser',
